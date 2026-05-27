@@ -8,7 +8,7 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className="w-full border-b border-white/10 bg-linear-gradient-to-r from-purple-950 to bg-zinc-950/90 backdrop-blur-lg">
+      <nav className="fixed top-0 left-0 right-0 z-50 w-full border-b border-white/10 bg-linear-gradient-to-r from-purple-950 to bg-zinc-950/90 backdrop-blur-lg">
         <div className="flex items-center justify-between px-6 py-4">
           
           {/* Logo Section */}
