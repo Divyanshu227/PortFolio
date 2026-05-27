@@ -17,7 +17,7 @@ export default function App() {
         flameSpeed={1}
         backgroundColor="#000000"
       >
-        <main className="mx-auto max-w-7xl px-6 py-12">
+        <main className="mx-auto max-w-7xl px-6 py-12 pt-28">
           <GradientText
             colors={['#5227FF', '#FF9FFC', '#B497CF']}
             animationSpeed={8}
