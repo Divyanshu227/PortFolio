@@ -185,7 +185,6 @@ export default function EvilEye({
   colorAnimAmplitude = 0.4
 }: EvilEyeProps & { children?: ReactNode }) {
   const containerRef = useRef<HTMLDivElement>(null);
-  const debugRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     if (!containerRef.current) return;
@@ -288,13 +287,6 @@ export default function EvilEye({
       const g = Math.max(0, Math.min(1, baseEyeVec[1] + Math.sin(t * colorAnimSpeed * twoPi) * colorAnimAmplitude));
       const b = Math.max(0, Math.min(1, baseEyeVec[2] + Math.sin(t * colorAnimSpeed * twoPi + Math.PI / 2) * colorAnimAmplitude));
       program.uniforms.uEyeColor.value = [baseEyeVec[0], g, b];
-      // update debug swatch if present
-      if (debugRef.current) {
-        const r = Math.round(baseEyeVec[0] * 255);
-        const gg = Math.round(g * 255);
-        const bb = Math.round(b * 255);
-        debugRef.current.style.backgroundColor = `rgb(${r}, ${gg}, ${bb})`;
-      }
       renderer.render({ scene: mesh });
     }
     animationFrameId = requestAnimationFrame(update);
@@ -313,7 +305,6 @@ export default function EvilEye({
     <>
       <div ref={containerRef} className="fixed inset-0 -z-10 w-screen h-screen" aria-hidden />
       <div className="relative z-10">{children}</div>
-      <div ref={debugRef} className="fixed top-4 right-4 w-8 h-8 rounded-full z-50 pointer-events-none border border-white/30" />
     </>
   );
 }
