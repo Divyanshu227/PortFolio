@@ -1,6 +1,7 @@
 import GradientText from "@/components/ui/gradient-text"
 import Navbar from './components/Navbar'
 import EvilEye from "./components/ui/EvilEye"
+import Carousel from "./components/ui/Carousel.tsx"
 export default function App() {
   return (
     <div className="min-h-screen ">
@@ -29,8 +30,15 @@ export default function App() {
           </GradientText>
 
           <p className="mt-4 text-lg text-gray-300">
-            Hi! I'm Divya, a passionate developer with experience in building web applications. Explore my projects and skills below.
+            Hi! I'm Divyanshu, a passionate developer with experience in building web applications. Explore my projects and skills below.
           </p>
+          <Carousel
+          baseWidth={400}
+            autoplay
+            autoplayDelay={5000}
+            pauseOnHover
+            loop
+          />
         </main>
       </EvilEye>
     </div>
