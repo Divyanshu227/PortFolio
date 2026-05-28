@@ -19,6 +19,16 @@ export default function GlowBackground(){
     }
     })
 
+    const particles = Array.from({ length: 36 }, (_, i) => ({
+      id: i,
+      x: Math.random() * 100,
+      y: Math.random() * 100,
+      size: Math.random() * 3 + 0.6,
+      delay: Math.random() * 6,
+      color: ['#06b6d4', '#7c3aed', '#60a5fa'][Math.floor(Math.random() * 3)],
+      duration: Math.random() * 6 + 6,
+    }))
+
     return(
         <>
         <div className ="fixed inset-0 z-0 w-full h-full bg-[#050212] overflow-hidden select-none pointer-events-none">
@@ -80,6 +90,48 @@ export default function GlowBackground(){
       </div>
 
       {/* Ambient dark bottom layer - transparent at top, extremely subtle dark bottom gradient */}
+      {/* Decorative concentric rings and vignette */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div
+          className="absolute -right-10 top-0 w-[48vw] h-[48vw] rounded-full blur-[60px] opacity-10"
+          style={{
+            background: 'radial-gradient(circle at 30% 30%, rgba(99,102,241,0.12), transparent 30%)',
+            mixBlendMode: 'screen',
+          }}
+        />
+
+        <div
+          className="absolute -right-6 top-8 w-[38vw] h-[38vw] rounded-full pointer-events-none"
+          style={{
+            background: 'conic-gradient(from 180deg at 50% 50%, rgba(99,102,241,0.06), rgba(6,182,212,0.04))',
+            filter: 'blur(28px)',
+            opacity: 0.9,
+          }}
+        />
+
+        {/* Floating micro-particles */}
+        {particles.map((p) => (
+          <motion.div
+            key={p.id}
+            className="absolute rounded-full"
+            style={{
+              left: `${p.x}%`,
+              top: `${p.y}%`,
+              width: p.size,
+              height: p.size,
+              background: p.color,
+              boxShadow: `0 0 ${Math.max(6, p.size * 6)}px ${p.color}`,
+            }}
+            animate={{
+              y: [`${p.y}%`, `${p.y - 6}%`, `${p.y}%`],
+              opacity: [0, 1, 0.4],
+              scale: [0.8, 1.15, 1],
+            }}
+            transition={{ duration: p.duration, repeat: Infinity, ease: 'easeInOut', delay: p.delay }}
+          />
+        ))}
+      </div>
+
       <div className="absolute inset-0 bg-gradient-to-t from-[#050212] via-transparent to-transparent opacity-50" />
     </div>
     </div>
