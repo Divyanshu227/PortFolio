@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import { ArrowRight, Download } from 'lucide-react'
-import cyberRobot from '../assets/images/cyber_robot.png'
+import cyberRobot from '../assets/cyber_robot.png'
 
 export default function Hero() {
   return (
