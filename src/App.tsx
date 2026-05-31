@@ -1,4 +1,5 @@
 import GlowBackground from './components/GlowBackground'
+import CustomCursor from './components/CustomCursor'
 import Navbar from './components/Navbar'
 import Hero from './sections/Hero'
 import TechStack from './sections/TechStack'
@@ -9,6 +10,9 @@ import CTA from './sections/CTA'
 function App() {
   return (
     <div className="relative min-h-screen font-sans selection:bg-neon-cyan/30 selection:text-white overflow-x-hidden antialiased">
+      {/* Custom Robotic HUD Cursor */}
+      <CustomCursor />
+
       {/* 1. Dynamic Cyberpunk Glow & Particle Canvas */}
       <GlowBackground />
 
