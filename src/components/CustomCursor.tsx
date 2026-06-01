@@ -178,7 +178,7 @@ export default function CustomCursor() {
           >
             {/* Outer futuristic angled boundary */}
             <path
-              d="M0 0 L26 10 L14 14 L10 26 Z"
+              d="M0 0 L24 10 L13 13 L5 24 Z"
               fill={isHovered ? 'rgba(168, 85, 247, 0.15)' : 'rgba(6, 182, 212, 0.12)'}
               stroke="currentColor"
               strokeWidth="2"
@@ -187,21 +187,21 @@ export default function CustomCursor() {
             />
             {/* Sharp inner cyber accents */}
             <path
-              d="M2.5 2.5 L12 9.5 L10 10.5 L6 13.5 Z"
+              d="M2.5 2.5 L12 5 L10 10 L3 12 Z"
               fill="currentColor"
               opacity="0.8"
             />
             {/* Inner glowing laser needle core */}
             <path
-              d="M1 1 L12 12"
+              d="M1 1 L11 11"
               stroke="#ffffff"
               strokeWidth="1.5"
               strokeLinecap="round"
             />
             {/* Tech details cross line dots */}
-            <circle cx="14" cy="14" r="1.5" fill="currentColor" />
+            <circle cx="13" cy="13" r="1.5" fill="currentColor" />
             <path
-              d="M14 14 L20 20"
+              d="M13 13 L19 19"
               stroke="currentColor"
               strokeWidth="1"
               strokeDasharray="2 2"
