@@ -1,13 +1,13 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { Send, Menu, X } from 'lucide-react'
-
+import { NavLink } from 'react-router-dom'
 
 export default function Navbar() {
   const [activeTab, setActiveTab] = useState('Home')
   const [isOpen, setIsOpen] = useState(false)
-
-  const navItems = ['Home', 'About', 'Projects', 'Skills', 'Experience', 'Contact']
+ 
+  const navItems = [{name: "Home", path:"/"}, {name: "About", path:"/about"}, {name: "Projects", path:"/projects"}, {name: "Skills", path:"/skills"}, {name: "Experience", path:"/experience"}, {name: "Contact", path:"/contact"}]
 
   return (
     <header className="sticky top-0 z-50 w-full px-4 md:px-8 py-4 select-none">
@@ -38,23 +38,23 @@ export default function Navbar() {
         {/* Center Section: Navigation Links (Desktop) */}
         <div className="hidden lg:flex items-center gap-8">
           {navItems.map((item) => (
-            <a
-              key={item}
-              href={`#${item.toLowerCase()}`}
-              onClick={() => setActiveTab(item)}
+            <NavLink
+              key={item.name}
+              to={item.path}
+              onClick={() => setActiveTab(item.name)}
               className={`relative text-[14px] font-medium transition-colors duration-300 px-1 py-1 ${
-                activeTab === item ? 'text-white font-semibold' : 'text-slate-400 hover:text-white'
+                activeTab === item.name ? 'text-white font-semibold' : 'text-slate-400 hover:text-white'
               }`}
             >
-              {item}
-              {activeTab === item && (
+              {item.name}
+              {activeTab === item.name && (
                 <motion.div
                   layoutId="activeNavDot"
                   className="absolute bottom-[-6px] left-[50%] -translate-x-[50%] w-1.5 h-1.5 rounded-full bg-neon-blue shadow-[0_0_10px_#3b82f6,0_0_20px_#3b82f6]"
                   transition={{ type: 'spring', stiffness: 300, damping: 30 }}
                 />
               )}
-            </a>
+            </NavLink>
           ))}
         </div>
 
@@ -90,8 +90,9 @@ export default function Navbar() {
           <div className="w-px h-5 bg-white/10" />
 
           {/* Glowing Let's Talk Button */}
-          <a
-            href="#contact"
+          <NavLink
+            to="/contact"
+            onClick={() => setActiveTab('Contact')}
             className="group relative flex items-center gap-2 px-5 py-2 text-xs font-semibold rounded-full border border-white/10 glass-panel overflow-hidden transition-all duration-300 hover:border-neon-cyan hover:shadow-[0_0_20px_rgba(6,182,212,0.15)]"
           >
             <span className="relative z-10 text-slate-200 group-hover:text-slate-100 transition-colors">
@@ -99,7 +100,7 @@ export default function Navbar() {
             </span>
             <Send className="w-3.5 h-3.5 text-slate-300 group-hover:translate-x-1 group-hover:-translate-y-0.5 transition-transform duration-300" />
             <div className="absolute inset-0 -z-10 bg-gradient-to-r from-neon-purple/10 to-neon-cyan/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-          </a>
+          </NavLink>
         </div>
 
         {/* Mobile Menu Icon (Tablet / Mobile) */}
@@ -121,19 +122,19 @@ export default function Navbar() {
         >
           <div className="flex flex-col gap-4">
             {navItems.map((item) => (
-              <a
-                key={item}
-                href={`#${item.toLowerCase()}`}
+              <NavLink
+                key={item.name}
+                to={item.path}
                 onClick={() => {
-                  setActiveTab(item)
+                  setActiveTab(item.name)
                   setIsOpen(false)
                 }}
                 className={`text-[15px] font-semibold tracking-wide py-2 border-b border-white/5 ${
-                  activeTab === item ? 'text-neon-cyan' : 'text-slate-400 hover:text-slate-200'
+                  activeTab === item.name ? 'text-neon-cyan' : 'text-slate-400 hover:text-slate-200'
                 }`}
               >
-                {item}
-              </a>
+                {item.name}
+              </NavLink>
             ))}
           </div>
 
@@ -154,14 +155,17 @@ export default function Navbar() {
               </a>
             </div>
 
-            <a
-              href="#contact"
-              onClick={() => setIsOpen(false)}
+            <NavLink
+              to="/contact"
+              onClick={() => {
+                setActiveTab('Contact')
+                setIsOpen(false)
+              }}
               className="flex items-center gap-2 px-5 py-2 text-xs font-semibold rounded-full border border-white/15 bg-gradient-to-r from-neon-purple/20 to-neon-cyan/20"
             >
               <span>Let's Talk</span>
               <Send className="w-3.5 h-3.5" />
-            </a>
+            </NavLink>
           </div>
         </motion.div>
       )}
