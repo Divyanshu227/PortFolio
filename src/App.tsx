@@ -1,14 +1,14 @@
 import { useEffect, useRef } from 'react'
+import { Routes, Route, Navigate } from 'react-router-dom'
 import GlowBackground from './components/GlowBackground'
 import CustomCursor from './components/CustomCursor'
 import Navbar from './components/Navbar'
-import Hero from './sections/Hero'
+import Home from './pages/home'
 import About from './pages/about'
-import TechStack from './sections/TechStack'
-import FeaturedProjects from './sections/FeaturedProjects'
+import Skills from './pages/skills'
+import Projects from './pages/projects'
 import Experience from './pages/experience'
-import Stats from './sections/Stats'
-import CTA from './sections/CTA'
+import Contact from './pages/contact'
 
 function App() {
   const clicksound = useRef(new Audio("/clicksound.mp3"))
@@ -39,26 +39,15 @@ function App() {
 
         {/* Main layout sections */}
         <main className="w-full flex-grow flex flex-col">
-          {/* Hero Section */}
-          <Hero />
-
-          {/* About Section */}
-          <About />
-
-          {/* Skills / Tech Stack Section */}
-          <TechStack />
-
-          {/* Projects Section */}
-          <FeaturedProjects />
-
-          {/* Experience Timeline Section */}
-          <Experience />
-
-          {/* Stats Dashboard */}
-          <Stats />
-
-          {/* Contact / CTA Form */}
-          <CTA />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/skills" element={<Skills />} />
+            <Route path="/projects" element={<Projects />} />
+            <Route path="/experience" element={<Experience />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="*" element={<Navigate to="/" replace />} />
+          </Routes>
         </main>
 
         {/* Elegant Cyberpunk Footer */}
