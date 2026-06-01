@@ -6,8 +6,22 @@ import TechStack from './sections/TechStack'
 import FeaturedProjects from './sections/FeaturedProjects'
 import Stats from './sections/Stats'
 import CTA from './sections/CTA'
+import {useEffect, useRef} from "react";
+
+
 
 function App() {
+  const clicksound =useRef(new Audio("/clicksound.mp3"));
+  useEffect(()=>{
+    const handleclick=()=>{
+      clicksound.current.currentTime=0;
+      clicksound.current.play().catch(()=>{});
+    };
+    document.addEventListener("click",handleclick);
+    return ()=>{
+      document.removeEventListener("click",handleclick);
+    };
+  },[]);
   return (
     <div className="relative min-h-screen font-sans selection:bg-neon-cyan/30 selection:text-white overflow-x-hidden antialiased">
       {/* Custom Robotic HUD Cursor */}
