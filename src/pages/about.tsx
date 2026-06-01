@@ -2,17 +2,18 @@ import { motion } from 'framer-motion'
 
 export default function About() {
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: -20 }}
-      transition={{ duration: 0.5 }}
-      className="max-w-4xl mx-auto px-6 py-24 text-center select-none"
+    <motion.section
+      id="about"
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.8 }}
+      className="max-w-4xl mx-auto px-6 py-20 text-center select-none"
     >
-      <h1 className="text-4xl md:text-5xl font-extrabold font-display mb-6 bg-gradient-to-r from-neon-purple to-neon-cyan bg-clip-text text-transparent">
+      <h2 className="text-4xl md:text-5xl font-extrabold font-display mb-6 bg-gradient-to-r from-neon-purple to-neon-cyan bg-clip-text text-transparent">
         About Me
-      </h1>
-      <p className="text-lg text-slate-300 leading-relaxed max-w-2xl mx-auto mb-12">
+      </h2>
+      <p className="text-[15px] sm:text-[17px] text-slate-300 leading-relaxed max-w-2xl mx-auto mb-12 font-light">
         I'm a passionate AI & Full Stack Developer who loves to engineer sleek, high-performance web applications and design intelligent systems. Let's build something exceptional.
       </p>
       <div className="grid md:grid-cols-2 gap-6 text-left">
@@ -29,6 +30,6 @@ export default function About() {
           </p>
         </div>
       </div>
-    </motion.div>
+    </motion.section>
   )
 }

@@ -96,7 +96,7 @@ export default function TechStack() {
   ]
 
   return (
-    <section className="max-w-7xl mx-auto px-4 md:px-8 py-8 select-none overflow-hidden">
+    <section id="skills" className="max-w-7xl mx-auto px-4 md:px-8 py-8 select-none overflow-hidden">
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}

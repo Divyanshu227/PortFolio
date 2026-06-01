@@ -4,7 +4,7 @@ import cyberRobot from '../assets/cyber_robot.png'
 
 export default function Hero() {
   return (
-    <section className="relative max-w-7xl mx-auto px-4 md:px-8 pt-12 pb-16 md:py-24 flex flex-col-reverse lg:flex-row items-center justify-between gap-12 overflow-hidden select-none">
+    <section id="home" className="relative max-w-7xl mx-auto px-4 md:px-8 pt-12 pb-16 md:py-24 flex flex-col-reverse lg:flex-row items-center justify-between gap-12 overflow-hidden select-none">
       
       {/* Left Column: Copywriting and CTAs */}
       <motion.div 

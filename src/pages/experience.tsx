@@ -34,16 +34,17 @@ const experiences: Job[] = [
 
 export default function Experience() {
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: -20 }}
-      transition={{ duration: 0.5 }}
-      className="max-w-4xl mx-auto px-6 py-24 select-none"
+    <motion.section
+      id="experience"
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.8 }}
+      className="max-w-4xl mx-auto px-6 py-20 select-none"
     >
-      <h1 className="text-4xl md:text-5xl font-extrabold font-display text-center mb-16 bg-gradient-to-r from-neon-purple to-neon-cyan bg-clip-text text-transparent">
+      <h2 className="text-4xl md:text-5xl font-extrabold font-display text-center mb-16 bg-gradient-to-r from-neon-purple to-neon-cyan bg-clip-text text-transparent">
         My Experience
-      </h1>
+      </h2>
 
       <div className="relative border-l border-white/10 ml-4 md:ml-8">
         {experiences.map((exp, idx) => (
@@ -68,7 +69,7 @@ export default function Experience() {
               <h4 className="text-sm font-semibold text-slate-400 mb-4">
                 {exp.company}
               </h4>
-              <p className="text-slate-300 text-sm leading-relaxed mb-6">
+              <p className="text-slate-300 text-sm leading-relaxed mb-6 font-light">
                 {exp.description}
               </p>
 
@@ -86,6 +87,6 @@ export default function Experience() {
           </motion.div>
         ))}
       </div>
-    </motion.div>
+    </motion.section>
   )
 }

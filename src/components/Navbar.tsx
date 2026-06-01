@@ -1,13 +1,19 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { Send, Menu, X } from 'lucide-react'
-import { NavLink } from 'react-router-dom'
 
 export default function Navbar() {
   const [activeTab, setActiveTab] = useState('Home')
   const [isOpen, setIsOpen] = useState(false)
- 
-  const navItems = [{name: "Home", path:"/"}, {name: "About", path:"/about"}, {name: "Projects", path:"/projects"}, {name: "Skills", path:"/skills"}, {name: "Experience", path:"/experience"}, {name: "Contact", path:"/contact"}]
+
+  const navItems = [
+    { name: 'Home', id: 'home' },
+    { name: 'About', id: 'about' },
+    { name: 'Skills', id: 'skills' },
+    { name: 'Projects', id: 'projects' },
+    { name: 'Experience', id: 'experience' },
+    { name: 'Contact', id: 'contact' }
+  ]
 
   return (
     <header className="sticky top-0 z-50 w-full px-4 md:px-8 py-4 select-none">
@@ -38,9 +44,9 @@ export default function Navbar() {
         {/* Center Section: Navigation Links (Desktop) */}
         <div className="hidden lg:flex items-center gap-8">
           {navItems.map((item) => (
-            <NavLink
+            <a
               key={item.name}
-              to={item.path}
+              href={`#${item.id}`}
               onClick={() => setActiveTab(item.name)}
               className={`relative text-[14px] font-medium transition-colors duration-300 px-1 py-1 ${
                 activeTab === item.name ? 'text-white font-semibold' : 'text-slate-400 hover:text-white'
@@ -54,7 +60,7 @@ export default function Navbar() {
                   transition={{ type: 'spring', stiffness: 300, damping: 30 }}
                 />
               )}
-            </NavLink>
+            </a>
           ))}
         </div>
 
@@ -90,8 +96,8 @@ export default function Navbar() {
           <div className="w-px h-5 bg-white/10" />
 
           {/* Glowing Let's Talk Button */}
-          <NavLink
-            to="/contact"
+          <a
+            href="#contact"
             onClick={() => setActiveTab('Contact')}
             className="group relative flex items-center gap-2 px-5 py-2 text-xs font-semibold rounded-full border border-white/10 glass-panel overflow-hidden transition-all duration-300 hover:border-neon-cyan hover:shadow-[0_0_20px_rgba(6,182,212,0.15)]"
           >
@@ -100,7 +106,7 @@ export default function Navbar() {
             </span>
             <Send className="w-3.5 h-3.5 text-slate-300 group-hover:translate-x-1 group-hover:-translate-y-0.5 transition-transform duration-300" />
             <div className="absolute inset-0 -z-10 bg-gradient-to-r from-neon-purple/10 to-neon-cyan/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-          </NavLink>
+          </a>
         </div>
 
         {/* Mobile Menu Icon (Tablet / Mobile) */}
@@ -122,9 +128,9 @@ export default function Navbar() {
         >
           <div className="flex flex-col gap-4">
             {navItems.map((item) => (
-              <NavLink
+              <a
                 key={item.name}
-                to={item.path}
+                href={`#${item.id}`}
                 onClick={() => {
                   setActiveTab(item.name)
                   setIsOpen(false)
@@ -134,7 +140,7 @@ export default function Navbar() {
                 }`}
               >
                 {item.name}
-              </NavLink>
+              </a>
             ))}
           </div>
 
@@ -155,8 +161,8 @@ export default function Navbar() {
               </a>
             </div>
 
-            <NavLink
-              to="/contact"
+            <a
+              href="#contact"
               onClick={() => {
                 setActiveTab('Contact')
                 setIsOpen(false)
@@ -165,7 +171,7 @@ export default function Navbar() {
             >
               <span>Let's Talk</span>
               <Send className="w-3.5 h-3.5" />
-            </NavLink>
+            </a>
           </div>
         </motion.div>
       )}
