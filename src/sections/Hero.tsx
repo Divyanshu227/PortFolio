@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import { ArrowRight, Download } from 'lucide-react'
+import { Link } from 'react-router-dom'
 import cyberRobot from '../assets/cyber_robot.png'
 
 export default function Hero() {
@@ -41,14 +42,14 @@ export default function Hero() {
         {/* Hero Buttons */}
         <div className="flex flex-wrap items-center gap-4">
           {/* View My Work Button */}
-          <a
-            href="#projects"
+          <Link
+            to="/projects"
             className="group relative flex items-center gap-2 px-7 py-3.5 rounded-full font-bold text-sm bg-gradient-to-r from-neon-purple to-neon-blue text-white overflow-hidden shadow-[0_0_20px_rgba(168,85,247,0.3)] hover:shadow-[0_0_30px_rgba(168,85,247,0.5)] transition-all duration-300 transform hover:-translate-y-0.5"
           >
             <span>View My Work</span>
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             <div className="absolute inset-0 bg-gradient-to-r from-neon-blue to-neon-cyan opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-          </a>
+          </Link>
 
           {/* Download Resume Button */}
           <a
