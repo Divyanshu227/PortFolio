@@ -60,11 +60,11 @@ export default function Navbar() {
                 <>
                   <span className="relative z-10">{item.name}</span>
                   
-                  {/* Sliding Glass Capsule Backdrop on Hover */}
+                  {/* Sliding Dark Glow Capsule Backdrop on Hover */}
                   {hoveredIndex === index && (
                     <motion.div
                       layoutId="navHoverBackdrop"
-                      className="absolute inset-0 bg-white/5 border border-white/10 rounded-full shadow-[0_4px_20px_rgba(255,255,255,0.03)]"
+                      className="absolute inset-0 bg-[#040308]/90 rounded-full shadow-[0_0_20px_rgba(168,85,247,0.3),0_0_35px_rgba(6,182,212,0.15)] border border-purple-500/20"
                       transition={{ type: 'spring', stiffness: 380, damping: 28 }}
                     />
                   )}
@@ -151,10 +151,10 @@ export default function Navbar() {
                 to={item.path}
                 onClick={() => setIsOpen(false)}
                 className={({ isActive }) =>
-                  `text-[15px] font-semibold tracking-wide px-4 py-2.5 rounded-xl border border-transparent transition-all duration-300 text-left flex items-center justify-between ${
+                  `text-[15px] font-semibold tracking-wide px-4 py-2.5 rounded-xl border transition-all duration-300 text-left flex items-center justify-between ${
                     isActive 
-                      ? 'bg-gradient-to-r from-neon-purple/10 to-neon-cyan/10 border-white/10 text-white shadow-[0_0_15px_rgba(168,85,247,0.1)]' 
-                      : 'text-slate-400 hover:text-white hover:bg-white/5'
+                      ? 'bg-[#040308]/90 border-purple-500/30 text-white shadow-[0_0_15px_rgba(168,85,247,0.25)]' 
+                      : 'border-transparent text-slate-400 hover:text-white hover:bg-[#040308]/65 hover:border-cyan-500/20 hover:shadow-[0_0_12px_rgba(6,182,212,0.15)]'
                   }`
                 }
               >
