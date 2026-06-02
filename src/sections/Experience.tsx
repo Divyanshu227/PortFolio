@@ -10,25 +10,11 @@ interface Job {
 
 const experiences: Job[] = [
   {
-    role: "Lead Full Stack & AI Engineer",
-    company: "FutureLabs",
-    period: "2024 - Present",
-    description: "Architected cutting-edge generative AI workflows, custom agent integrations, and scalable cloud-native web applications with ultra-responsive interactive frontends.",
-    tech: ["React", "TypeScript", "Python", "LLMs", "Node.js", "AWS"]
-  },
-  {
-    role: "Senior Frontend Developer",
-    company: "CyberNet Systems",
-    period: "2022 - 2024",
-    description: "Designed immersive interactive dashboards, visual analytics suites, and optimized frontend bundle performance, achieving near-perfect lighthouse scores.",
-    tech: ["Next.js", "Framer Motion", "TailwindCSS", "WebGL", "Three.js"]
-  },
-  {
-    role: "Software Engineering Intern",
-    company: "Symmetric Solutions",
-    period: "2021 - 2022",
-    description: "Developed and maintained full-stack internal tooling, API integrations, and robust automated end-to-end testing pipelines.",
-    tech: ["React", "Express", "PostgreSQL", "Docker", "Jest"]
+    role: "GSSoC '26 Contributor",
+    company: "GirlScript Summer of Code",
+    period: "2026",
+    description: "Actively contributing to open-source repositories, optimizing interfaces, and collaborating with global developers to build robust software systems.",
+    tech: ["Open Source", "Git", "GitHub", "React", "TypeScript"]
   }
 ]
 
