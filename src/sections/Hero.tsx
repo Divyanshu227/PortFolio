@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
 import { ArrowRight, Download } from 'lucide-react'
 import { Link } from 'react-router-dom'
-import cyberRobot from '../assets/cyber_robot.png'
+import developerImg from '../assets/outdoor.png'
 
 export default function Hero() {
   return (
@@ -101,10 +101,10 @@ export default function Hero() {
             {/* Inner content clip (black base) */}
             <div className="w-full h-full rounded-full bg-[#000000] flex items-center justify-center overflow-hidden relative">
               
-              {/* The Robot Image Asset */}
+              {/* The Developer Image Asset */}
               <motion.img
-                src={cyberRobot}
-                alt="Cybernetic Robotic AI Profile"
+                src={developerImg}
+                alt="Divyanshu - AI & Full Stack Developer"
                 className="w-[102%] h-[102%] object-cover select-none pointer-events-none animate-float"
                 initial={{ scale: 1.1, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
