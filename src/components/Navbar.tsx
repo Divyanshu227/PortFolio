@@ -5,7 +5,6 @@ import { NavLink, Link } from 'react-router-dom'
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
-  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null)
 
   const navItems = [
     { name: 'Home', path: '/' },
@@ -31,7 +30,7 @@ export default function Navbar() {
               <div className="absolute bottom-0 right-0 w-2 h-2 bg-neon-cyan rounded-tl-sm shadow-[0_0_8px_#06b6d4]" />
             </div>
           </div>
-          
+
           <div className="flex flex-col text-left">
             <span className="text-[17px] font-bold tracking-wide text-white leading-tight">
               DivyanshuKJ
@@ -43,37 +42,23 @@ export default function Navbar() {
         </Link>
 
         {/* Center Section: Navigation Links (Desktop) */}
-        <div className="hidden lg:flex items-center gap-1">
-          {navItems.map((item, index) => (
+        <div className="hidden lg:flex items-center gap-8">
+          {navItems.map((item) => (
             <NavLink
               key={item.name}
               to={item.path}
-              onMouseEnter={() => setHoveredIndex(index)}
-              onMouseLeave={() => setHoveredIndex(null)}
               className={({ isActive }) =>
-                `relative text-[14px] font-semibold transition-colors duration-300 px-4 py-2 rounded-full ${
-                  isActive ? 'text-white' : 'text-slate-400 hover:text-slate-200'
+                `relative text-[14px] font-medium transition-colors duration-300 px-1 py-1 ${isActive ? 'text-white font-semibold' : 'text-slate-400 hover:text-white'
                 }`
               }
             >
               {({ isActive }) => (
                 <>
-                  <span className="relative z-10">{item.name}</span>
-                  
-                  {/* Sliding Dark Glow Capsule Backdrop on Hover */}
-                  {hoveredIndex === index && (
-                    <motion.div
-                      layoutId="navHoverBackdrop"
-                      className="absolute inset-0 bg-[#040308]/90 rounded-full shadow-[0_0_20px_rgba(168,85,247,0.3),0_0_35px_rgba(6,182,212,0.15)] border border-purple-500/20"
-                      transition={{ type: 'spring', stiffness: 380, damping: 28 }}
-                    />
-                  )}
-
-                  {/* Active Dot Indicator */}
+                  {item.name}
                   {isActive && (
                     <motion.div
                       layoutId="activeNavDot"
-                      className="absolute bottom-[-2px] left-[50%] -translate-x-[50%] w-1.5 h-1.5 rounded-full bg-neon-blue shadow-[0_0_10px_#3b82f6,0_0_20px_#3b82f6] z-20"
+                      className="absolute bottom-[-6px] left-[50%] -translate-x-[50%] w-1.5 h-1.5 rounded-full bg-neon-blue shadow-[0_0_10px_#3b82f6,0_0_20px_#3b82f6]"
                       transition={{ type: 'spring', stiffness: 300, damping: 30 }}
                     />
                   )}
@@ -144,32 +129,18 @@ export default function Navbar() {
           exit={{ opacity: 0, y: -20 }}
           className="absolute left-4 right-4 mt-2 p-6 rounded-2xl glass-panel lg:hidden shadow-[0_8px_32px_0_rgba(3,2,8,0.7)] flex flex-col gap-6"
         >
-          <div className="flex flex-col gap-2">
+          <div className="flex flex-col gap-4">
             {navItems.map((item) => (
               <NavLink
                 key={item.name}
                 to={item.path}
                 onClick={() => setIsOpen(false)}
                 className={({ isActive }) =>
-                  `text-[15px] font-semibold tracking-wide px-4 py-2.5 rounded-xl border transition-all duration-300 text-left flex items-center justify-between ${
-                    isActive 
-                      ? 'bg-[#040308]/90 border-purple-500/30 text-white shadow-[0_0_15px_rgba(168,85,247,0.25)]' 
-                      : 'border-transparent text-slate-400 hover:text-white hover:bg-[#040308]/65 hover:border-cyan-500/20 hover:shadow-[0_0_12px_rgba(6,182,212,0.15)]'
+                  `text-[15px] font-semibold tracking-wide py-2 border-b border-white/5 text-left ${isActive ? 'text-neon-cyan' : 'text-slate-400 hover:text-slate-200'
                   }`
                 }
               >
-                {({ isActive }) => (
-                  <>
-                    <span>{item.name}</span>
-                    {isActive && (
-                      <motion.div
-                        layoutId="activeMobileDot"
-                        className="w-1.5 h-1.5 rounded-full bg-neon-cyan shadow-[0_0_8px_#06b6d4]"
-                        transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-                      />
-                    )}
-                  </>
-                )}
+                {item.name}
               </NavLink>
             ))}
           </div>
