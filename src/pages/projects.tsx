@@ -30,6 +30,7 @@ interface Project {
     gateway: string
   }
   mockup: React.ReactNode
+  videoUrl?: string
 }
 
 export default function Projects() {
@@ -294,6 +295,7 @@ export default function Projects() {
       title: 'Elysium',
       category: 'web-apps',
       description: 'A lightweight developer browser extension that automatically captures successful GeeksforGeeks code submissions, structures files with descriptive readme info, and commits them instantly to a GitHub repository.',
+      videoUrl: 'https://res.cloudinary.com/cxvvisl8/video/upload/f_auto,q_auto/v1782907780/elysiumintro_yaiirg.mp4',
       tags: [
         { name: 'JavaScript', color: 'border-yellow-500/30 text-yellow-400 bg-yellow-500/5' },
         { name: 'Chrome Extension', color: 'border-blue-500/30 text-blue-400 bg-blue-500/5' },
@@ -469,7 +471,20 @@ export default function Projects() {
 
               {/* Visual Mockup frame */}
               <div className="w-full relative rounded-xl overflow-hidden mt-2 border border-white/5 shadow-md">
-                {project.mockup}
+                {project.videoUrl ? (
+                  <div className="relative w-full h-44 bg-[#08070e] flex items-center justify-center overflow-hidden">
+                    <video
+                      src={project.videoUrl}
+                      loop
+                      muted
+                      playsInline
+                      autoPlay
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                ) : (
+                  project.mockup
+                )}
               </div>
 
               {/* Inspect Arrow Button */}
@@ -586,10 +601,37 @@ export default function Projects() {
                   {/* Right Mockup column */}
                   <div className="lg:col-span-6 space-y-2">
                     <h3 className="text-xs font-bold uppercase tracking-wider text-slate-400 font-mono flex items-center gap-1.5 border-b border-white/5 pb-2">
-                      <Database className="w-3.5 h-3.5 text-neon-cyan" /> Interactive Preview
+                      {selectedProject.videoUrl ? (
+                        <>
+                          <svg className="w-3.5 h-3.5 text-neon-cyan animate-pulse" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                            <polygon points="23 7 16 12 23 17 23 7" />
+                            <rect x="1" y="5" width="15" height="14" rx="2" ry="2" />
+                          </svg>
+                          <span>Showcase Video</span>
+                        </>
+                      ) : (
+                        <>
+                          <Database className="w-3.5 h-3.5 text-neon-cyan" />
+                          <span>Interactive Preview</span>
+                        </>
+                      )}
                     </h3>
                     <div className="scale-95 origin-top-left w-[105%]">
-                      {selectedProject.mockup}
+                      {selectedProject.videoUrl ? (
+                        <div className="relative w-full aspect-video rounded-xl overflow-hidden border border-white/10 bg-[#08070e] shadow-inner mb-2">
+                          <video
+                            src={selectedProject.videoUrl}
+                            controls
+                            autoPlay
+                            loop
+                            muted
+                            playsInline
+                            className="w-full h-full object-cover"
+                          />
+                        </div>
+                      ) : (
+                        selectedProject.mockup
+                      )}
                     </div>
                   </div>
 
