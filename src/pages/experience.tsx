@@ -6,7 +6,6 @@ import {
   GitBranch, 
   ChevronRight, 
   CheckCircle2, 
-  Activity, 
   Target
 } from 'lucide-react'
 
@@ -183,31 +182,12 @@ const milestonesData: Milestone[] = [
 export default function Experience() {
   const [activeLogTab, setActiveLogTab] = useState<LogType>('open-source')
   const [selectedMilestone, setSelectedMilestone] = useState<Milestone>(milestonesData[0])
-  const [hoveredNode, setHoveredNode] = useState<{ r: number; c: number } | null>(null)
   
   const clickSound = useRef(new Audio("/clicksound.mp3"))
 
   const playClick = () => {
     clickSound.current.currentTime = 0
     clickSound.current.play().catch(() => {})
-  }
-
-  // Pre-generate GSSoC contribution grid (7 rows representing days of week, 32 columns representing weeks)
-  const matrixRows = 7
-  const matrixCols = 32
-  const contributionGrid = useRef<number[][]>([])
-
-  if (contributionGrid.current.length === 0) {
-    const weights = [0, 0, 0, 1, 1, 1, 2, 2, 3, 3, 4]
-    for (let r = 0; r < matrixRows; r++) {
-      const row = []
-      for (let c = 0; c < matrixCols; c++) {
-        // Semi-random level to simulate open source commitments
-        const commitWeight = weights[Math.floor(Math.random() * weights.length)]
-        row.push(commitWeight)
-      }
-      contributionGrid.current.push(row)
-    }
   }
 
   // Set default selection when tab changes
@@ -253,78 +233,7 @@ export default function Experience() {
         </p>
       </motion.div>
 
-      {/* TAB 1 FEATURE: GSSOC26 LIVE MATRIX telemetry overlay */}
-      <motion.div
-        initial={{ opacity: 0, y: 15 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        className="max-w-4xl mx-auto p-6 rounded-2xl glass-panel border border-neon-cyan/10 relative overflow-hidden mb-16 shadow-[0_0_20px_rgba(6,182,212,0.05)]"
-      >
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 border-b border-white/5 pb-4 mb-4">
-          <div className="flex items-center gap-2.5">
-            <Activity className="w-4 h-4 text-neon-cyan animate-pulse" />
-            <div>
-              <span className="text-[10px] font-mono text-neon-cyan font-bold tracking-[0.2em] uppercase">GSSOC26 CONTRIBUTION MATRIX // LIVE COMMIT TELEMETRY</span>
-              <p className="text-[9px] text-slate-500 font-sans mt-0.5">Visual representation of active coding and open-source contributions</p>
-            </div>
-          </div>
-          <div className="flex items-center gap-3 text-[9px] font-mono text-slate-400">
-            <span>Less</span>
-            <div className="flex gap-1">
-              <div className="w-2.5 h-2.5 rounded bg-[#0a0518] border border-white/5" />
-              <div className="w-2.5 h-2.5 rounded bg-neon-purple/20 border border-neon-purple/35" />
-              <div className="w-2.5 h-2.5 rounded bg-neon-blue/40 border border-neon-blue/60" />
-              <div className="w-2.5 h-2.5 rounded bg-neon-cyan/70 border border-neon-cyan/90" />
-              <div className="w-2.5 h-2.5 rounded bg-emerald-500 border border-emerald-400" />
-            </div>
-            <span>More</span>
-          </div>
-        </div>
 
-        {/* Contribution Grid */}
-        <div className="flex flex-col gap-[3.5px] overflow-x-auto no-scrollbar py-2 items-center">
-          <div className="flex flex-col gap-[3.5px] min-w-max">
-            {contributionGrid.current.map((row, rIdx) => (
-              <div key={rIdx} className="flex gap-[3.5px]">
-                {row.map((level, cIdx) => {
-                  let colorClass = 'bg-[#06030c]/80 border-white/5'
-                  if (level === 1) colorClass = 'bg-neon-purple/20 border-neon-purple/30 shadow-[0_0_4px_rgba(168,85,247,0.1)]'
-                  if (level === 2) colorClass = 'bg-neon-blue/45 border-neon-blue/55 shadow-[0_0_6px_rgba(59,130,246,0.15)]'
-                  if (level === 3) colorClass = 'bg-neon-cyan/70 border-neon-cyan/80 shadow-[0_0_8px_rgba(6,182,212,0.25)]'
-                  if (level === 4) colorClass = 'bg-emerald-500 border-emerald-400 shadow-[0_0_10px_rgba(16,185,129,0.35)]'
-                  
-                  const isHovered = hoveredNode?.r === rIdx && hoveredNode?.c === cIdx
-                  
-                  return (
-                    <div 
-                      key={cIdx} 
-                      onMouseEnter={() => setHoveredNode({ r: rIdx, c: cIdx })}
-                      onMouseLeave={() => setHoveredNode(null)}
-                      className={`w-3.5 h-3.5 rounded-[2px] border ${colorClass} transition-all duration-200 cursor-pointer ${
-                        isHovered ? 'scale-125 z-10 border-white/40 ring-1 ring-white/10' : ''
-                      }`}
-                    />
-                  )
-                })}
-              </div>
-            ))}
-          </div>
-        </div>
-        
-        {/* Fake commit label info */}
-        <AnimatePresence>
-          {hoveredNode && (
-            <motion.div
-              initial={{ opacity: 0, y: 5 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: 5 }}
-              className="absolute bottom-2 left-6 text-[8px] font-mono text-neon-cyan tracking-wider"
-            >
-              COMMIT COMPILATION ID // GSSOC-DEV-{hoveredNode.r * 10 + hoveredNode.c}: ACTIVE CODE RESOLVED
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </motion.div>
 
       {/* Tab select dashboard switcher */}
       <div className="flex flex-wrap justify-center gap-4 mb-16 max-w-2xl mx-auto">
