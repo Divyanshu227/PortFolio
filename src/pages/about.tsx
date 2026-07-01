@@ -107,7 +107,7 @@ export default function About() {
             <div className="space-y-4">
               <div className="flex justify-between items-center border-b border-white/5 pb-2">
                 <span className="text-[11px] text-slate-500 font-mono uppercase tracking-wider">IDENTITY</span>
-                <span className="text-sm font-bold text-white font-display">DIVYANSHU</span>
+                <span className="text-sm font-bold text-white font-display">DIVYANSHU<span className='text-sm font-bold text-neon-cyan'>KJ</span></span>
               </div>
               <div className="flex justify-between items-center border-b border-white/5 pb-2">
                 <span className="text-[11px] text-slate-500 font-mono uppercase tracking-wider">SPECIALTY</span>
