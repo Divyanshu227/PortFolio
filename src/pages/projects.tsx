@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { 
   ArrowUpRight, 
-  MessageSquare, 
   Search, 
   Layers, 
   ShieldAlert, 
@@ -43,53 +42,46 @@ export default function Projects() {
     {
       title: 'SecureTalk',
       category: 'security',
-      description: 'Real-time communication framework utilizing SubtleCrypto E2EE encryption, group channels, session keys, and integrated LLM chat automation agents.',
+      description: 'A modern, feature-rich full-stack chat application enabling real-time messaging, conversation management, and secure JWT/bcrypt authentication with full message edit and delete support.',
       tags: [
-        { name: 'React', color: 'border-blue-500/30 text-blue-400 bg-blue-500/5' },
-        { name: 'TypeScript', color: 'border-purple-500/30 text-purple-400 bg-purple-500/5' },
-        { name: 'Socket.io', color: 'border-cyan-500/30 text-cyan-400 bg-cyan-500/5' },
-        { name: 'E2EE Cryptography', color: 'border-rose-500/30 text-rose-400 bg-rose-500/5' }
+        { name: 'React (TS)', color: 'border-blue-500/30 text-blue-400 bg-blue-500/5' },
+        { name: 'Node.js', color: 'border-purple-500/30 text-purple-400 bg-purple-500/5' },
+        { name: 'PostgreSQL', color: 'border-cyan-500/30 text-cyan-400 bg-cyan-500/5' },
+        { name: 'JWT Auth', color: 'border-rose-500/30 text-rose-400 bg-rose-500/5' }
       ],
       features: [
-        'End-to-End Encryption utilizing SubtleCrypto PBKDF2/AES-GCM protocols.',
-        'Real-time bi-directional pipeline communication via Socket.io channels.',
-        'Intelligent automation assistant chatbot powered by the Gemini API.',
-        'Client-side key derivation preventing raw text server-side leaks.'
+        'Secure user registration and login session management via JWT and bcrypt.',
+        'Interactive conversations list sidebar with duplicate creation checks.',
+        'Full message lifecycle operations (Send, Edit, Delete) with edit status indicator.',
+        'Responsive viewport layout (Mobile, Tablet, Desktop) optimized using dark themes.'
       ],
       specs: {
-        database: 'MongoDB (Encrypted storage)',
-        host: 'Render Node + Vercel Static',
-        security: 'WebCrypto API / Session Tokens',
-        gateway: 'Express.js REST APIs'
+        database: 'PostgreSQL Database',
+        host: 'Railway (API) / Vercel (Web)',
+        security: 'Bcrypt Hash / JWT Expire Token',
+        gateway: 'Express API Server Router'
       },
       mockup: (
         <div className="relative w-full h-44 rounded-xl border border-white/5 bg-[#08070e] overflow-hidden flex flex-col p-3 shadow-inner">
           {/* Mockup header */}
           <div className="flex items-center justify-between border-b border-white/5 pb-2 mb-2">
             <div className="flex items-center gap-1.5">
-              <span className="w-2 h-2 rounded-full bg-red-500/70" />
-              <span className="w-2 h-2 rounded-full bg-yellow-500/70" />
-              <span className="w-2 h-2 rounded-full bg-green-500/70" />
+              <span className="w-2 h-2 rounded-full bg-emerald-500/80 animate-pulse" />
+              <span className="text-[9px] font-bold text-slate-300 font-display">SecureTalk // Client Portal</span>
             </div>
-            <span className="text-[9px] text-slate-500 font-mono flex items-center gap-1">
-              <MessageSquare className="w-2.5 h-2.5 text-neon-cyan animate-pulse" />
-              securetalk-tunnel-active
-            </span>
+            <span className="text-[8px] text-slate-500 font-mono">user: active</span>
           </div>
-          {/* Chat Bubble 1 (User) */}
-          <div className="self-end max-w-[80%] rounded-lg bg-neon-purple/10 border border-neon-purple/20 px-2.5 py-1 mb-1.5">
-            <p className="text-[9px] text-slate-300 leading-tight">Write a secure cryptographic script.</p>
+          {/* Chat Bubble 1 (User 1) */}
+          <div className="self-end max-w-[80%] rounded-lg bg-neon-purple/10 border border-neon-purple/20 px-2.5 py-1 mb-1.5 text-right">
+            <p className="text-[9px] text-slate-300 leading-tight">Did you test the new message edit features?</p>
+            <span className="text-[6.5px] text-slate-500 block mt-0.5">10:42 AM</span>
           </div>
-          {/* Chat Bubble 2 (AI Assistant) */}
-          <div className="self-start max-w-[85%] rounded-lg bg-white/5 border border-white/10 px-2.5 py-1.5 flex items-start gap-1.5">
-            <div className="w-3.5 h-3.5 rounded-full bg-gradient-to-r from-neon-blue to-neon-cyan flex-shrink-0 flex items-center justify-center">
-              <span className="text-[7px] font-bold text-black font-mono">AI</span>
-            </div>
-            <div className="flex flex-col gap-1">
-              <p className="text-[8px] text-slate-400 font-mono leading-tight">Sure, using SubtleCrypto API:</p>
-              <div className="w-28 h-5 bg-black/60 rounded border border-white/5 flex items-center px-1">
-                <span className="text-[6.5px] text-emerald-400 font-mono">{"const key = await deriveKey();"}</span>
-              </div>
+          {/* Chat Bubble 2 (User 2) */}
+          <div className="self-start max-w-[80%] rounded-lg bg-white/5 border border-white/10 px-2.5 py-1 flex flex-col">
+            <p className="text-[9px] text-slate-300 leading-tight">Yes! Edited and deleted messages update instantly in the database.</p>
+            <div className="flex items-center justify-between mt-1 text-[6.5px] text-slate-500">
+              <span>10:43 AM</span>
+              <span className="text-neon-cyan italic">Edited</span>
             </div>
           </div>
         </div>
@@ -193,6 +185,7 @@ export default function Projects() {
     {
       title: 'Evalio',
       category: 'systems-ai',
+      videoUrl: 'https://res.cloudinary.com/cxvvisl8/video/upload/f_auto,q_auto/v1782987095/evalio_lyfex8.mp4',
       description: 'An intelligent AI-powered resume analysis platform parsing document layouts, matching credentials against candidate search queries, scoring ATS compatibility, and highlighting structural improvements.',
       tags: [
         { name: 'Next.js', color: 'border-blue-500/30 text-blue-400 bg-blue-500/5' },
@@ -245,6 +238,7 @@ export default function Projects() {
     {
       title: 'Klyft',
       category: 'web-apps',
+       videoUrl: 'https://res.cloudinary.com/cxvvisl8/video/upload/f_auto,q_auto/v1782908336/make_intro_video_for_Klyft_a_yipvke.mp4',
       description: 'A high-performance modern e-commerce platform built with micro-frontends, instantaneous server-side rendering, Stripe multi-currency processing, and automatic inventory synchronizations.',
       tags: [
         { name: 'React Router', color: 'border-blue-500/30 text-blue-400 bg-blue-500/5' },
@@ -475,11 +469,11 @@ export default function Projects() {
                   <div className="relative w-full h-44 bg-[#08070e] flex items-center justify-center overflow-hidden">
                     <video
                       src={project.videoUrl}
+                      controls
                       loop
-                      muted
                       playsInline
-                      autoPlay
                       className="w-full h-full object-cover"
+                      onClick={(e) => e.stopPropagation()}
                     />
                   </div>
                 ) : (
@@ -622,9 +616,7 @@ export default function Projects() {
                           <video
                             src={selectedProject.videoUrl}
                             controls
-                            autoPlay
                             loop
-                            muted
                             playsInline
                             className="w-full h-full object-cover"
                           />

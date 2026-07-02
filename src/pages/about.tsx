@@ -259,6 +259,29 @@ export default function About() {
                   ))}
                 </div>
               </div>
+
+              {/* Machine Learning Card */}
+              <div className="p-6 rounded-2xl glass-panel border border-white/5 hover:border-emerald-400/30 transition-all duration-300 group md:col-span-2">
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="p-3 rounded-xl bg-emerald-400/10 text-emerald-400">
+                    <Brain className="w-6 h-6" />
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-bold text-white font-display">Machine Learning Theory</h3>
+                    <span className="text-[10px] text-slate-500 font-mono uppercase tracking-wider">Intelligent Systems</span>
+                  </div>
+                </div>
+                <p className="text-slate-400 text-sm leading-relaxed mb-5">
+                  Understanding mathematical foundations of machine learning models, probabilistic classifiers, tree-based partitions, and ensemble methods.
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  {['Decision Trees', 'Bagging & Boosting', 'Naive Bayes', 'Gini Index / Entropy', 'Random Forests', 'Ensemble Methods'].map((item) => (
+                    <span key={item} className="text-[10px] font-mono px-2.5 py-1 rounded-md bg-white/5 border border-white/5 text-slate-300">
+                      {item}
+                    </span>
+                  ))}
+                </div>
+              </div>
             </motion.div>
           )}
 
