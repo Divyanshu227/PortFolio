@@ -1,73 +1,118 @@
-# React + TypeScript + Vite
+# 🤖 DKJ-HUD // Cyberpunk Developer Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A futuristic, cyberpunk-themed developer portfolio featuring premium sci-fi HUD telemetry interfaces, interactive terminal logs, fluid motion transitions, and customizable asset connectors. Engineered with **React + TypeScript + Vite** and styled with **Tailwind CSS**.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 🚀 Key Features
 
-## React Compiler
+*   **Cinematic Intro Video Overlay:** 
+    *   Immersive, full-screen cyberpunk intro video loaded behind a setup modal prompting the user to launch in fullscreen.
+    *   Includes dynamic autoplay fallback for browsers blocking audio, manual skip options, and unmuted audio overrides.
+    *   Stateful tracking so the video displays on every site visit/refresh as requested.
+*   **Hacker Telemetry Dashboard Logs:**
+    *   Interactive HUD details panel on the **Experience** and **Academic** views that acts like a console logging terminal.
+    *   Displays mission milestones (B.Tech CSE at IIIT Bhopal, 12th State Board, 10th CBSE), projects shipments, and competitive programming details.
+*   **Live Coding Profile Metrics:**
+    *   Integrates live statistics fetching via public endpoints for **LeetCode** and **CodeChef** profiles with zero-config local baseline fallbacks in case of API downtime or CORS blocks.
+    *   Displays custom-styled brand badges using official platform PNG assets (LeetCode, CodeChef [1500+ Rating, 2★], and GeeksforGeeks).
+*   **Environment Configuration:**
+    *   All social links, portfolio profiles (LeetCode, CodeChef, GeeksforGeeks), resume cloud directories, and video resources are extracted into environment variables (`.env`) for ease of customization.
+*   **Robust CI/CD Build Check Pipeline:**
+    *   Integrates a GitHub Actions workflow (`.github/workflows/build-check.yml`) that automatically runs compilation validations (`tsc -b && vite build`) on pull requests targeting production branches.
+*   **Cyberpunk Aesthetics:**
+    *   Rich neon color scheme (cyan, purple, and green gradients) with interactive glowing state transitions.
+    *   Custom crosshair mouse cursors with click ripple shockwaves.
+    *   Navbar with light/dark cyberpunk mode selector and browser fullscreen toggle button.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## 🛠️ Tech Stack
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+*   **Frontend Core:** React 19 (TypeScript)
+*   **Build Tool:** Vite
+*   **Styling & Theme:** Tailwind CSS & Custom CSS Variables (Glassmorphism, custom scrollbars, neon text glows)
+*   **Animations:** Framer Motion
+*   **Icons:** Lucide React
+*   **Automation:** GitHub Actions (YAML CI Pipelines)
+*   **Hosting:** Hosted natively on **Vercel**
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+---
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## 📂 Project Structure
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```text
+├── .github/
+│   └── workflows/
+│       └── build-check.yml   # PR build verification pipeline
+├── src/
+│   ├── assets/               # Local media, images, and brand PNG assets
+│   ├── components/
+│   │   ├── CustomCursor.tsx  # Interactive cyber crosshair + shockwaves
+│   │   ├── IntroOverlay.tsx  # Immersive full-screen overlay & video
+│   │   └── Navbar.tsx        # Navigation menu with fullscreen & theme controls
+│   ├── pages/
+│   │   ├── about.tsx         # Graphic biography & profile cards
+│   │   ├── contact.tsx       # Cyber terminal-styled payload dispatch form
+│   │   ├── experience.tsx    # Academic/professional timeline + interactive logs HUD
+│   │   ├── projects.tsx      # System architecture cards database
+│   │   └── skills.tsx        # Tech capability stats bars
+│   ├── sections/             # Page sections (Hero, Stats, CTA, etc.)
+│   └── App.tsx               # Client router & page transitions container
+├── .env                      # Application environment variables configuration
+├── vite.config.ts            # Vite compiler & bundling setup
+└── tailwind.config.js        # Cyberpunk neon-cyan/purple theme colors config
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## ⚙️ Environment Configuration (`.env`)
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+Create a `.env` file in the root folder of the project. Configure the following environment variables:
+
+```properties
+# Social Links
+VITE_GITHUB_URL=https://github.com/Divyanshu227
+VITE_LINKEDIN_URL=https://www.linkedin.com/in/divyanshu-kumar-jha-7a0439327/
+VITE_EMAIL=divyanshukumarjha47@gmail.com
+
+# Coding Profiles URLs
+VITE_LEETCODE_URL=https://leetcode.com/u/Divyanshu_KJ/
+VITE_CODECHEF_URL=https://www.codechef.com/users/divyanshu_4495
+VITE_GEEKSFORGEEKS_URL=https://www.geeksforgeeks.org/user/divyanshuk1twv/
+
+# Asset Resources URLs
+VITE_RESUME_URL=https://www.dropbox.com/scl/fi/fiw5o5a21y46lorlrw07o/autoCV-32.pdf?rlkey=26s7rhwypfio1xo0oochumwra&st=fvenmpyb&dl=0
+VITE_INTRO_VIDEO_URL=https://res.cloudinary.com/cxvvisl8/video/upload/v1782989605/portfoliointrovideo_rjrcn2.mp4
 ```
+
+---
+
+## 🖥️ Local Setup & Run
+
+### 1. Install Dependencies
+```bash
+npm install
+```
+
+### 2. Launch Development Server
+```bash
+npm run dev
+```
+Open `http://localhost:5173` in your browser.
+
+### 3. Verify Production Compilation
+To build the static HTML/JS output inside the `dist/` directory:
+```bash
+npm run build
+```
+
+---
+
+## 📦 Deployment Instructions
+
+The project is configured for seamless deployment on **Vercel**:
+
+1. Create a new project on **Vercel** and select your imported GitHub repository.
+2. In the **Environment Variables** panel, add the 8 environment variables defined in the `.env` configuration above.
+3. Click **Deploy**. Vercel will build the React bundle and configure automatic updates on every commit push to `main`/`master` branches.
