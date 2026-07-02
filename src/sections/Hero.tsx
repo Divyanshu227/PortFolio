@@ -53,7 +53,8 @@ export default function Hero() {
 
           {/* Download Resume Button */}
           <a
-            href="#resume"
+          target='_blank'
+            href="https://www.dropbox.com/scl/fi/ojd7ya96eooq8zl2bm7h5/DivyanshuKumarJha__Resume.pdf?rlkey=en7n259xy624g8a5c1u4i93vg&st=a3ts9zqt&dl=0"
             className="group flex items-center gap-2 px-7 py-3.5 rounded-full font-bold text-sm text-slate-300 border border-white/10 glass-panel hover:border-white/20 hover:text-white transition-all duration-300 transform hover:-translate-y-0.5"
           >
             <span>Download Resume</span>
