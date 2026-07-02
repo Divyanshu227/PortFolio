@@ -522,6 +522,30 @@ const skillsData: Skill[] = [
         <path d="M34 34 L34 94 M94 34 L94 94 M34 34 L94 34 M34 94 L94 94" stroke="#444" strokeWidth="2" strokeDasharray="3 3" />
       </svg>
     )
+  },
+  {
+    name: 'Machine Learning Theory',
+    category: 'devops',
+    level: 'Advanced',
+    percentage: 86,
+    colorClass: 'text-rose-400 border-rose-500/20',
+    bgGlowClass: 'hover:border-rose-500/30 hover:shadow-[0_0_25px_rgba(244,63,94,0.15)]',
+    progressBarColor: 'bg-rose-500 shadow-[0_0_10px_#f43f5e]',
+    tags: ['Bagging & Boosting', 'Decision Trees', 'Naive Bayes', 'Gini Index / Entropy', 'Random Forests', 'Ensemble Methods'],
+    description: 'Understanding core mathematical models, probabilistic classification, tree-based partitions, ensemble learning strategies, and mathematical entropy metrics.',
+    logo: (
+      <svg className="w-6 h-6" viewBox="0 0 128 128" fill="none">
+        <circle cx="64" cy="24" r="10" stroke="#F43F5E" strokeWidth="4" />
+        <circle cx="34" cy="68" r="8" stroke="#F43F5E" strokeWidth="3" />
+        <circle cx="94" cy="68" r="8" stroke="#F43F5E" strokeWidth="3" />
+        <circle cx="18" cy="108" r="6" stroke="#06B6D4" strokeWidth="2.5" />
+        <circle cx="50" cy="108" r="6" stroke="#06B6D4" strokeWidth="2.5" />
+        <line x1="56" y1="30" x2="40" y2="60" stroke="#888" strokeWidth="2.5" />
+        <line x1="72" y1="30" x2="88" y2="60" stroke="#888" strokeWidth="2.5" />
+        <line x1="30" y1="74" x2="22" y2="100" stroke="#888" strokeWidth="2" />
+        <line x1="38" y1="74" x2="46" y2="100" stroke="#888" strokeWidth="2" />
+      </svg>
+    )
   }
 ]
 
@@ -981,11 +1005,11 @@ export default function Skills() {
                   <BrainCircuit className="w-6 h-6 text-emerald-400" /> Infrastructure & Intelligent Systems
                 </h2>
                 <p className="text-xs text-slate-400 mt-1">
-                  Orchestrating container networks, codebase version control, and training/implementing ML prompting with RAG.
+                  Orchestrating container networks, codebase version control, parsing mathematical ML theory, and implementing intelligent RAG systems.
                 </p>
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                 {devopsList.map(renderSkillCard)}
               </div>
             </motion.div>
