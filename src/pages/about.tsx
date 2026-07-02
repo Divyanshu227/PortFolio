@@ -377,7 +377,7 @@ export default function About() {
                 <div className="grid grid-cols-3 gap-4">
                   {/* LeetCode Link Card */}
                   <a
-                    href="https://leetcode.com/u/Divyanshu_KJ/"
+                    href={import.meta.env.VITE_LEETCODE_URL}
                     target="_blank"
                     rel="noreferrer"
                     className="p-4 rounded-xl glass-panel border border-white/5 hover:border-neon-cyan/40 hover:shadow-[0_0_15px_rgba(6,182,212,0.15)] transition-all duration-300 text-center block group cursor-pointer"
@@ -393,7 +393,7 @@ export default function About() {
 
                   {/* CodeChef Link Card */}
                   <a
-                    href="https://www.codechef.com/users/divyanshu_4495"
+                    href={import.meta.env.VITE_CODECHEF_URL}
                     target="_blank"
                     rel="noreferrer"
                     className="p-4 rounded-xl glass-panel border border-white/5 hover:border-neon-purple/40 hover:shadow-[0_0_15px_rgba(168,85,247,0.15)] transition-all duration-300 text-center block group cursor-pointer"
@@ -409,7 +409,7 @@ export default function About() {
 
                   {/* GFG Link Card */}
                   <a
-                    href="https://www.geeksforgeeks.org/user/divyanshuk1twv/"
+                    href={import.meta.env.VITE_GEEKSFORGEEKS_URL}
                     target="_blank"
                     rel="noreferrer"
                     className="p-4 rounded-xl glass-panel border border-white/5 hover:border-neon-blue/40 hover:shadow-[0_0_15px_rgba(59,130,246,0.15)] transition-all duration-300 text-center block group cursor-pointer"

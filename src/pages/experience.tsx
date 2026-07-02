@@ -525,7 +525,7 @@ export default function Experience() {
                     <span className="text-cyan-300 font-bold block uppercase text-[10px]">[PROFILE CONNECTORS]</span>
                     <div className="flex flex-wrap gap-2">
                       <a
-                        href="https://leetcode.com/u/Divyanshu_KJ/"
+                        href={import.meta.env.VITE_LEETCODE_URL}
                         target="_blank"
                         rel="noreferrer"
                         className="px-4 py-2 rounded bg-black border border-[#FFA116]/20 hover:border-[#FFA116] hover:shadow-[0_0_10px_rgba(255,161,22,0.2)] transition-all cursor-pointer flex items-center justify-center"
@@ -533,7 +533,7 @@ export default function Experience() {
                         <img src={leetcodeLogo} alt="LeetCode" className="h-5.5 object-contain" />
                       </a>
                       <a
-                        href="https://www.codechef.com/users/divyanshu_4495"
+                        href={import.meta.env.VITE_CODECHEF_URL}
                         target="_blank"
                         rel="noreferrer"
                         className="px-4 py-2 rounded bg-white border border-[#5B4636]/35 hover:border-[#967d6c] hover:shadow-[0_0_10px_rgba(150,125,108,0.2)] transition-all cursor-pointer flex items-center justify-center"
@@ -541,7 +541,7 @@ export default function Experience() {
                         <img src={codechefLogo} alt="CodeChef" className="h-5.5 object-contain" />
                       </a>
                       <a
-                        href="https://www.geeksforgeeks.org/user/divyanshuk1twv/"
+                        href={import.meta.env.VITE_GEEKSFORGEEKS_URL}
                         target="_blank"
                         rel="noreferrer"
                         className="px-4 py-2 rounded bg-white border border-[#2F8D46]/20 hover:border-[#2F8D46] hover:shadow-[0_0_10px_rgba(47,141,70,0.2)] transition-all cursor-pointer flex items-center justify-center"

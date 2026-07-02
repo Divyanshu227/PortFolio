@@ -113,7 +113,7 @@ export default function IntroOverlay({ onComplete }: IntroOverlayProps) {
       {/* The Cinematic Video Element */}
       <video
         ref={videoRef}
-        src="https://res.cloudinary.com/cxvvisl8/video/upload/v1782989605/portfoliointrovideo_rjrcn2.mp4"
+        src={import.meta.env.VITE_INTRO_VIDEO_URL}
         playsInline
         onEnded={handleSkip}
         onError={handleVideoError}

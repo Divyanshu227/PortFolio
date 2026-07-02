@@ -57,7 +57,7 @@ export default function Hero() {
           {/* Download Resume Button */}
           <a
           target='_blank'
-            href="https://www.dropbox.com/scl/fi/ojd7ya96eooq8zl2bm7h5/DivyanshuKumarJha__Resume.pdf?rlkey=en7n259xy624g8a5c1u4i93vg&st=a3ts9zqt&dl=0"
+            href={import.meta.env.VITE_RESUME_URL}
             className="group flex items-center gap-2 px-7 py-3.5 rounded-full font-bold text-sm text-slate-300 border border-white/10 glass-panel hover:border-white/20 hover:text-white transition-all duration-300 transform hover:-translate-y-0.5"
           >
             <span>Download Resume</span>
@@ -71,7 +71,7 @@ export default function Hero() {
           <div className="flex flex-wrap items-center gap-4">
             {/* LeetCode */}
             <a
-              href="https://leetcode.com/u/Divyanshu_KJ/"
+              href={import.meta.env.VITE_LEETCODE_URL}
               target="_blank"
               rel="noreferrer"
               title="LeetCode Profile"
@@ -82,7 +82,7 @@ export default function Hero() {
 
             {/* CodeChef */}
             <a
-              href="https://www.codechef.com/users/divyanshu_4495"
+              href={import.meta.env.VITE_CODECHEF_URL}
               target="_blank"
               rel="noreferrer"
               title="CodeChef Profile"
@@ -93,7 +93,7 @@ export default function Hero() {
 
             {/* GeeksforGeeks */}
             <a
-              href="https://www.geeksforgeeks.org/user/divyanshuk1twv/"
+              href={import.meta.env.VITE_GEEKSFORGEEKS_URL}
               target="_blank"
               rel="noreferrer"
               title="GeeksforGeeks Profile"
