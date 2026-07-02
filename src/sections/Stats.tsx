@@ -21,7 +21,7 @@ export default function Stats() {
     },
     {
       icon: <Cpu className="w-5 h-5 text-neon-purple drop-shadow-[0_0_6px_rgba(168,85,247,0.7)]" />,
-      value: '500+',
+      value: '2000+',
       label: 'Problems Solved',
     },
     {
