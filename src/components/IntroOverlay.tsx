@@ -8,6 +8,12 @@ interface IntroOverlayProps {
 export default function IntroOverlay({ onComplete }: IntroOverlayProps) {
   const [isMuted, setIsMuted] = useState(false)
   const [hasStarted, setHasStarted] = useState(false)
+  const [showPrompt, setShowPrompt] = useState(() => {
+    if (typeof document !== 'undefined') {
+      return !document.fullscreenElement
+    }
+    return true
+  })
   const videoRef = useRef<HTMLVideoElement>(null)
 
   // Disable scrolling while the intro video is active
@@ -19,7 +25,7 @@ export default function IntroOverlay({ onComplete }: IntroOverlayProps) {
   }, [])
 
   // Programmatically trigger unmuted play, fallback to muted if blocked by browser
-  useEffect(() => {
+  const playVideo = () => {
     if (videoRef.current) {
       videoRef.current.muted = false
       setIsMuted(false)
@@ -38,7 +44,28 @@ export default function IntroOverlay({ onComplete }: IntroOverlayProps) {
         })
       }
     }
-  }, [])
+  }
+
+  useEffect(() => {
+    if (!showPrompt) {
+      playVideo()
+    }
+  }, [showPrompt])
+
+  const startImmersiveFeed = async () => {
+    try {
+      if (document.documentElement.requestFullscreen) {
+        await document.documentElement.requestFullscreen()
+      }
+    } catch (err) {
+      console.warn("Fullscreen request denied:", err)
+    }
+    setShowPrompt(false)
+  }
+
+  const startDefaultFeed = () => {
+    setShowPrompt(false)
+  }
 
   // Safely trigger audio playing
   const toggleMute = () => {
@@ -146,6 +173,54 @@ export default function IntroOverlay({ onComplete }: IntroOverlayProps) {
           </div>
         </div>
       </div>
+
+      {/* Holographic Fullscreen calibration prompt */}
+      {showPrompt && (
+        <div className="absolute inset-0 z-50 bg-black/95 flex items-center justify-center p-6 backdrop-blur-md">
+          <div className="relative max-w-md w-full p-8 rounded-3xl glass-panel border border-white/10 bg-[#030208]/90 shadow-[0_0_50px_rgba(6,182,212,0.15)] text-center space-y-6">
+            {/* Hologram details */}
+            <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-neon-cyan/50 rounded-tl-xl pointer-events-none" />
+            <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-neon-purple/50 rounded-tr-xl pointer-events-none" />
+            <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-neon-purple/50 rounded-bl-xl pointer-events-none" />
+            <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-neon-cyan/50 rounded-br-xl pointer-events-none" />
+
+            <div className="w-16 h-16 mx-auto rounded-full bg-neon-cyan/10 border border-neon-cyan/30 flex items-center justify-center text-neon-cyan animate-pulse">
+              <svg className="w-8 h-8" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M8 3H5a2 2 0 00-2 2v3m18 0V5a2 2 0 00-2-2h-3m0 18h3a2 2 0 002-2v-3M3 16v3a2 2 0 002 2h3" />
+              </svg>
+            </div>
+
+            <div className="space-y-2">
+              <span className="text-[10px] text-neon-cyan font-mono tracking-widest uppercase block">
+                Visual Calibration
+              </span>
+              <h2 className="text-2xl font-bold font-display text-white tracking-tight">
+                SYSTEM SETUP
+              </h2>
+              <p className="text-xs text-slate-400 font-sans leading-relaxed">
+                This digital portfolio utilizes spatial audio, micro-animations, and full-viewport layout telemetry. For the ultimate cinematic experience, please launch in fullscreen.
+              </p>
+            </div>
+
+            <div className="flex flex-col gap-3 pt-2">
+              <button
+                type="button"
+                onClick={startImmersiveFeed}
+                className="w-full py-3 rounded-xl bg-gradient-to-r from-neon-purple to-neon-cyan hover:shadow-[0_0_25px_rgba(6,182,212,0.4)] text-white font-mono text-xs font-bold uppercase tracking-wider transition-all duration-300 transform hover:-translate-y-0.5 cursor-pointer"
+              >
+                Launch Fullscreen Feed
+              </button>
+              <button
+                type="button"
+                onClick={startDefaultFeed}
+                className="w-full py-3 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-slate-400 hover:text-white font-mono text-xs font-semibold uppercase tracking-wider transition-all duration-300 cursor-pointer"
+              >
+                Launch Default Feed
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   )
 }
