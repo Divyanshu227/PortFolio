@@ -6,7 +6,7 @@ interface IntroOverlayProps {
 }
 
 export default function IntroOverlay({ onComplete }: IntroOverlayProps) {
-  const [isMuted, setIsMuted] = useState(true)
+  const [isMuted, setIsMuted] = useState(false)
   const [hasStarted, setHasStarted] = useState(false)
   const videoRef = useRef<HTMLVideoElement>(null)
 
@@ -15,6 +15,28 @@ export default function IntroOverlay({ onComplete }: IntroOverlayProps) {
     document.body.style.overflow = 'hidden'
     return () => {
       document.body.style.overflow = ''
+    }
+  }, [])
+
+  // Programmatically trigger unmuted play, fallback to muted if blocked by browser
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.muted = false
+      setIsMuted(false)
+
+      const playPromise = videoRef.current.play()
+      if (playPromise !== undefined) {
+        playPromise.catch((error) => {
+          console.warn("Autoplay with audio was blocked by browser. Falling back to muted autoplay:", error)
+          if (videoRef.current) {
+            videoRef.current.muted = true
+            setIsMuted(true)
+            videoRef.current.play().catch((err) => {
+              console.error("Muted fallback play failed:", err)
+            })
+          }
+        })
+      }
     }
   }, [])
 
@@ -65,8 +87,6 @@ export default function IntroOverlay({ onComplete }: IntroOverlayProps) {
       <video
         ref={videoRef}
         src="https://res.cloudinary.com/cxvvisl8/video/upload/v1782989605/portfoliointrovideo_rjrcn2.mp4"
-        autoPlay
-        muted
         playsInline
         onEnded={handleSkip}
         onError={handleVideoError}

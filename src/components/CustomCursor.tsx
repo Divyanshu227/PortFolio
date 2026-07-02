@@ -120,7 +120,7 @@ export default function CustomCursor() {
             onAnimationComplete={() => {
               setRipples((prev) => prev.filter((r) => r.id !== ripple.id))
             }}
-            className="fixed z-50 pointer-events-none -translate-x-1/2 -translate-y-1/2 rounded-full border border-cyan-400 bg-cyan-500/5 shadow-[0_0_20px_rgba(6,182,212,0.4)]"
+            className="fixed z-[10001] pointer-events-none -translate-x-1/2 -translate-y-1/2 rounded-full border border-cyan-400 bg-cyan-500/5 shadow-[0_0_20px_rgba(6,182,212,0.4)]"
             style={{
               left: ripple.x,
               top: ripple.y,
@@ -133,7 +133,7 @@ export default function CustomCursor() {
 
       {/* Main Cursor Element */}
       <div
-        className="fixed inset-0 z-50 pointer-events-none mix-blend-screen transition-opacity duration-300"
+        className="fixed inset-0 z-[10000] pointer-events-none mix-blend-screen transition-opacity duration-300"
         style={{ opacity: isVisible ? 1 : 0 }}
       >
         {/* Outer Circular HUD Ring - lagging behind fluidly with soft spring */}
