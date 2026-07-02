@@ -8,6 +8,9 @@ import {
   CheckCircle2, 
   Target
 } from 'lucide-react'
+import leetcodeLogo from '../assets/leetcodeLogo.png'
+import codechefLogo from '../assets/codechefLogo.png'
+import gfgLogo from '../assets/gfgLogo.png'
 
 // Define Log types
 type LogType = 'open-source' | 'shipments' | 'academic'
@@ -270,12 +273,12 @@ const milestonesData: Milestone[] = [
     tech: ["C++ STL", "Algorithms", "Optimization", "Contest Runs"],
     metrics: [
       { label: 'LEETCODE', value: '600+ Solved' },
-      { label: 'CODECHEF', value: '850+ Solved' },
+      { label: 'CODECHEF', value: '1500+ (2★)' },
       { label: 'GFG', value: '400+ Solved' }
     ],
     details: [
       "Solved 600+ problems on LeetCode focusing on dynamic programming and graph structures.",
-      "Solved 850+ challenges on CodeChef, demonstrating rapid logic decomposition under constraint environments.",
+      "Achieved a peak rating of 1500+ on CodeChef (2★) and solved 850+ challenges on the platform.",
       "Solved 400+ GeeksforGeeks problems mastering classic library structures implementations.",
       "Achieved strong rankings in weekly code contests and virtual algorithms runs."
     ]
@@ -525,25 +528,25 @@ export default function Experience() {
                         href="https://leetcode.com/u/Divyanshu_KJ/"
                         target="_blank"
                         rel="noreferrer"
-                        className="px-3 py-1.5 rounded bg-white/5 border border-white/10 hover:border-neon-cyan hover:text-white transition-all text-slate-300 text-[11px] font-semibold cursor-pointer"
+                        className="px-4 py-2 rounded bg-black border border-[#FFA116]/20 hover:border-[#FFA116] hover:shadow-[0_0_10px_rgba(255,161,22,0.2)] transition-all cursor-pointer flex items-center justify-center"
                       >
-                        LeetCode ↗
+                        <img src={leetcodeLogo} alt="LeetCode" className="h-5.5 object-contain" />
                       </a>
                       <a
                         href="https://www.codechef.com/users/divyanshu_4495"
                         target="_blank"
                         rel="noreferrer"
-                        className="px-3 py-1.5 rounded bg-white/5 border border-white/10 hover:border-neon-purple hover:text-white transition-all text-slate-300 text-[11px] font-semibold cursor-pointer"
+                        className="px-4 py-2 rounded bg-white border border-[#5B4636]/35 hover:border-[#967d6c] hover:shadow-[0_0_10px_rgba(150,125,108,0.2)] transition-all cursor-pointer flex items-center justify-center"
                       >
-                        CodeChef ↗
+                        <img src={codechefLogo} alt="CodeChef" className="h-5.5 object-contain" />
                       </a>
                       <a
                         href="https://www.geeksforgeeks.org/user/divyanshuk1twv/"
                         target="_blank"
                         rel="noreferrer"
-                        className="px-3 py-1.5 rounded bg-white/5 border border-white/10 hover:border-neon-blue hover:text-white transition-all text-slate-300 text-[11px] font-semibold cursor-pointer"
+                        className="px-4 py-2 rounded bg-white border border-[#2F8D46]/20 hover:border-[#2F8D46] hover:shadow-[0_0_10px_rgba(47,141,70,0.2)] transition-all cursor-pointer flex items-center justify-center"
                       >
-                        GeeksforGeeks ↗
+                        <img src={gfgLogo} alt="GeeksforGeeks" className="h-5.5 object-contain" />
                       </a>
                     </div>
                   </div>

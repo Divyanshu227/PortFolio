@@ -2,6 +2,9 @@ import { motion } from 'framer-motion'
 import { ArrowRight, Download } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import developerImg from '../assets/outdoor.png'
+import leetcodeLogo from '../assets/leetcodeLogo.png'
+import codechefLogo from '../assets/codechefLogo.png'
+import gfgLogo from '../assets/gfgLogo.png'
 
 export default function Hero() {
   return (
@@ -60,6 +63,45 @@ export default function Hero() {
             <span>Download Resume</span>
             <Download className="w-4 h-4 text-slate-400 group-hover:translate-y-0.5 group-hover:text-white transition-all" />
           </a>
+        </div>
+
+        {/* Coding Profiles Row */}
+        <div className="mt-10 flex flex-wrap items-center gap-5 text-sm font-sans text-slate-400">
+          <span className="font-mono uppercase tracking-widest text-[11px] text-slate-500 font-bold">Coding Profiles:</span>
+          <div className="flex flex-wrap items-center gap-4">
+            {/* LeetCode */}
+            <a
+              href="https://leetcode.com/u/Divyanshu_KJ/"
+              target="_blank"
+              rel="noreferrer"
+              title="LeetCode Profile"
+              className="px-5 py-2.5 rounded-2xl bg-black border border-[#FFA116]/25 hover:border-[#FFA116] text-slate-300 hover:text-white transition-all duration-300 flex items-center justify-center cursor-pointer hover:shadow-[0_0_20px_rgba(255,161,22,0.3)]"
+            >
+              <img src={leetcodeLogo} alt="LeetCode" className="h-6 object-contain" />
+            </a>
+
+            {/* CodeChef */}
+            <a
+              href="https://www.codechef.com/users/divyanshu_4495"
+              target="_blank"
+              rel="noreferrer"
+              title="CodeChef Profile"
+              className="px-5 py-2.5 rounded-2xl bg-white border border-[#5B4636]/35 hover:border-[#967d6c] text-slate-300 hover:text-white transition-all duration-300 flex items-center justify-center cursor-pointer hover:shadow-[0_0_20px_rgba(150,125,108,0.3)]"
+            >
+              <img src={codechefLogo} alt="CodeChef" className="h-6 object-contain" />
+            </a>
+
+            {/* GeeksforGeeks */}
+            <a
+              href="https://www.geeksforgeeks.org/user/divyanshuk1twv/"
+              target="_blank"
+              rel="noreferrer"
+              title="GeeksforGeeks Profile"
+              className="px-5 py-2.5 rounded-2xl bg-white border border-[#2F8D46]/25 hover:border-[#2F8D46] text-slate-300 hover:text-white transition-all duration-300 flex items-center justify-center cursor-pointer hover:shadow-[0_0_20px_rgba(47,141,70,0.3)]"
+            >
+              <img src={gfgLogo} alt="GeeksforGeeks" className="h-6 object-contain" />
+            </a>
+          </div>
         </div>
       </motion.div>
 

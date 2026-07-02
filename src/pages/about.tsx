@@ -9,7 +9,7 @@ export default function About() {
   const [activeTab, setActiveTab] = useState<TabType>('toolkit')
   const [codingStats, setCodingStats] = useState({
     leetcode: { solved: '600+', label: 'Solved' },
-    codechef: { rating: '1600+', label: 'Rating (3★)' },
+    codechef: { rating: '1500+', label: 'Rating (2★)' },
     gfg: { solved: '400+', label: 'Solved' }
   })
 
@@ -42,8 +42,8 @@ export default function About() {
             setCodingStats(prev => ({
               ...prev,
               codechef: {
-                rating: `${ccData.rating || '1600+'}`,
-                label: `Rating Live (${ccData.stars || '3★'})`
+                rating: `${ccData.rating || '1500+'}`,
+                label: `Rating Live (${ccData.stars || '2★'})`
               }
             }))
           }
