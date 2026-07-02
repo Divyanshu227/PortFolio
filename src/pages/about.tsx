@@ -54,7 +54,7 @@ export default function About() {
             </h2>
             <div className="space-y-4 text-slate-300 text-base leading-relaxed font-light">
               <p>
-                Hi, I'm <span className="text-white font-medium">Divyanshu</span> — a passionate Full Stack Developer, Competitive Programmer, and AI enthusiast currently pursuing my Bachelor's degree in Computer Science Engineering. I specialize in merging complex backend logic with beautiful, immersive frontend designs.
+                Hi, I'm <span className="text-white font-medium">Divyanshu</span> — a passionate Full Stack Developer, Competitive Programmer, and AI enthusiast currently pursuing my Bachelor's degree in Computer Science Engineering at IIIT Bhopal (Batch of 2024-2028). I specialize in merging complex backend logic with beautiful, immersive frontend designs.
               </p>
               <p>
                 My engineering philosophy is simple: write code that is clean, modular, and highly optimized, while delivering a visual experience that is smooth and responsive. I believe visual aesthetics and software performance are not trade-offs; they must coexist to build exceptional digital experiences.
@@ -115,7 +115,11 @@ export default function About() {
               </div>
               <div className="flex justify-between items-center border-b border-white/5 pb-2">
                 <span className="text-[11px] text-slate-500 font-mono uppercase tracking-wider">EDUCATION</span>
-                <span className="text-[11px] font-semibold text-slate-300 text-right">B.Tech CSE Student</span>
+                <span className="text-[11px] font-semibold text-slate-300 text-right">IIIT Bhopal (2024-2028)</span>
+              </div>
+              <div className="flex justify-between items-center border-b border-white/5 pb-2">
+                <span className="text-[11px] text-slate-500 font-mono uppercase tracking-wider">CGPA / GPA</span>
+                <span className="text-xs font-semibold text-neon-cyan font-mono">9.01 / 10.0</span>
               </div>
               <div className="flex justify-between items-center">
                 <span className="text-[11px] text-slate-500 font-mono uppercase tracking-wider">LOCATION</span>

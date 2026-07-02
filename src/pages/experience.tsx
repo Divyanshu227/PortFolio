@@ -73,87 +73,190 @@ const milestonesData: Milestone[] = [
   // PRODUCT SHIPMENTS
   {
     id: 'ship-securetalk',
-    title: "SecureTalk E2EE System Deployed",
-    subtitle: "Independent Product Shipment (v1.0.0)",
+    title: "SecureTalk System Deployed",
+    subtitle: "Full-Stack Chat Application (v1.0.0)",
     period: "March 2026",
     category: 'shipments',
     status: 'DEPLOYED',
-    summary: "Built and shipped SecureTalk, a fully encrypted chat service using the WebCrypto API (SubtleCrypto) for end-to-end security.",
-    tech: ["React.js", "Socket.io", "Node.js", "WebCrypto API"],
+    summary: "A modern, feature-rich full-stack chat application enabling real-time messaging, conversation management, and secure JWT/bcrypt authentication with full message edit and delete support.",
+    tech: ["React (TS)", "Node.js", "PostgreSQL", "JWT Auth"],
     metrics: [
       { label: 'VERSION', value: 'v1.0.0' },
-      { label: 'E2EE STATUS', value: 'AES-GCM 256bit' },
-      { label: 'DEPLOYMENT', value: 'Render + Vercel' }
+      { label: 'DATABASE', value: 'PostgreSQL' },
+      { label: 'GATEWAY', value: 'Express API' }
     ],
     details: [
-      "Architected SubtleCrypto E2EE encryption pipelines, generating client-side session keys.",
-      "Shipped real-time bi-directional message streaming channels using Socket.io rooms.",
-      "Integrated Gemini LLM automation helper agents directly into chat channels.",
-      "Deployed frontend client to Vercel and backend microservice to Render container systems."
+      "Secure user registration and login session management via JWT and bcrypt.",
+      "Interactive conversations list sidebar with duplicate creation checks.",
+      "Full message lifecycle operations (Send, Edit, Delete) with edit status indicator.",
+      "Responsive viewport layout (Mobile, Tablet, Desktop) optimized using dark themes."
     ]
   },
   {
-    id: 'ship-devintel',
-    title: "DevIntel AI & RAG Engine Launched",
-    subtitle: "AI Systems Deployed (v1.0.4)",
+    id: 'ship-gymbase',
+    title: "GymBase Platform Launched",
+    subtitle: "Interactive Workout Community Platform (v1.2.0)",
+    period: "January 2026",
+    category: 'shipments',
+    status: 'DEPLOYED',
+    summary: "Interactive workout community platform featuring live rooms creation, trainer dashboards, membership subscription payments via Stripe, and transactional mail pipelines.",
+    tech: ["MERN Stack", "Stripe API", "SMTP Mail", "React.js"],
+    metrics: [
+      { label: 'VERSION', value: 'v1.2.0' },
+      { label: 'PAYMENTS', value: 'Stripe API' },
+      { label: 'DATABASE', value: 'MongoDB' }
+    ],
+    details: [
+      "Secure checkout pipelines and subscription webhooks linked to Stripe API.",
+      "Trainer portal tracking user logs, training stats, and schedule calendars.",
+      "Automated welcome and validation notifications using Nodemailer SMTP.",
+      "Role-based database schema access routing (Trainer/User)."
+    ]
+  },
+  {
+    id: 'ship-trueauth',
+    title: "TrueAuth Gateway Deployed",
+    subtitle: "Secure Login & Auth Gateway (v1.0.0)",
+    period: "December 2025",
+    category: 'shipments',
+    status: 'DEPLOYED',
+    summary: "A comprehensive client-side secure login gateway displaying multi-factor authentication, timed OTP validation codes, and session expiration audits.",
+    tech: ["React", "Firebase", "Tailwind CSS", "MFA"],
+    metrics: [
+      { label: 'VERSION', value: 'v1.0.0' },
+      { label: 'SECURITY', value: 'MFA Code Check' },
+      { label: 'GATEWAY', value: 'Serverless Functions' }
+    ],
+    details: [
+      "Multi-factor authentication check flows linked to Firebase auth modules.",
+      "Temporary token generation (OTP validation keys) for session recoveries.",
+      "Automatic activity tracking with local timeout logging system overrides.",
+      "Styled responsive auth components with micro-animations state."
+    ]
+  },
+  {
+    id: 'ship-evalio',
+    title: "Evalio AI & Resume System Shipped",
+    subtitle: "AI-powered Resume Analysis Platform (v1.0.2)",
     period: "November 2025",
     category: 'shipments',
     status: 'DEPLOYED',
-    summary: "Launched DevIntel AI, an automated codebase RAG assistant that indexes directories and queries vector databases.",
-    tech: ["Next.js", "FastAPI", "Pinecone", "LangChain"],
+    summary: "An intelligent AI-powered resume analysis platform parsing document layouts, matching credentials against candidate search queries, scoring ATS compatibility, and highlighting structural improvements.",
+    tech: ["Next.js", "FastAPI", "Gemini API", "Vector Search"],
     metrics: [
-      { label: 'VERSION', value: 'v1.0.4' },
-      { label: 'INDEX CAPACITY', value: '248 AST Nodes' },
-      { label: 'DB VECTOR', value: 'Pinecone Database' }
+      { label: 'VERSION', value: 'v1.0.2' },
+      { label: 'AI MODEL', value: 'Gemini API' },
+      { label: 'VECTOR DB', value: 'Qdrant / Postgres' }
     ],
     details: [
-      "Designed directory tree walking parsing scripts, compiling abstract syntax templates.",
-      "Linked Pinecone vector indices to store high-dimensional embeddings mapped from source modules.",
-      "Constructed RAG semantic search querying structures with OpenAI embeddings.",
-      "Shipped a visual code checklist overlay using Framer Motion spring modules."
+      "PDF/DOCX layout parsing using advanced NLP heuristics.",
+      "ATS-compatibility check scoring resume matches out of 100.",
+      "Interactive feedback generator highlighting spelling, grammar, and style issues.",
+      "Semantic search matching capabilities powered by Gemini and Qdrant."
     ]
   },
   {
-    id: 'ship-hypergraph',
-    title: "HyperGraph Engine Gateway Merged",
-    subtitle: "Data API Systems Deployed (v0.8.2-beta)",
+    id: 'ship-klyft',
+    title: "Klyft E-commerce Platform Launched",
+    subtitle: "High-Performance Modern E-commerce (v1.0.0)",
+    period: "October 2025",
+    category: 'shipments',
+    status: 'DEPLOYED',
+    summary: "A high-performance modern e-commerce platform built with micro-frontends, server-side rendering, Stripe multi-currency processing, and automatic inventory synchronizations.",
+    tech: ["React Router", "Node.js", "Stripe API", "PostgreSQL"],
+    metrics: [
+      { label: 'VERSION', value: 'v1.0.0' },
+      { label: 'ORM', value: 'Prisma ORM' },
+      { label: 'DEPLOYMENT', value: 'Fly.io + AWS' }
+    ],
+    details: [
+      "Instantaneous server-side rendering for optimal SEO and sub-second load times.",
+      "Flexible shopping cart state linked with LocalStorage and account synchronization.",
+      "Secure multi-currency checkouts integrated via Stripe Elements.",
+      "Real-time transactional notification emails sent upon order completion."
+    ]
+  },
+  {
+    id: 'ship-elysium',
+    title: "Elysium Extension Published",
+    subtitle: "Developer Chrome Extension (v1.0.0)",
     period: "August 2025",
     category: 'shipments',
     status: 'DEPLOYED',
-    summary: "Deployed HyperGraph, a GraphQL gateway layer managing cache lookups under sub-millisecond ranges using Redis.",
-    tech: ["GraphQL", "Redis Cache", "PostgreSQL", "Docker"],
+    summary: "A lightweight developer browser extension that automatically captures successful GeeksforGeeks code submissions, structures files with descriptive readme info, and commits them instantly to a GitHub repository.",
+    tech: ["JavaScript", "Chrome Extension", "GitHub API", "CSS Injection"],
     metrics: [
-      { label: 'VERSION', value: 'v0.8.2-beta' },
-      { label: 'LATENCY', value: '0.4ms avg response' },
-      { label: 'CACHE HIT', value: '94.2%' }
+      { label: 'VERSION', value: 'v1.0.0' },
+      { label: 'DB', value: 'Chrome Sync' },
+      { label: 'API GATEWAY', value: 'GitHub REST API' }
     ],
     details: [
-      "Engineered Apollo Server schema definitions merging postgres relational tables.",
-      "Implemented Redis key-value caches middleware, achieving 0.4ms average response rates.",
-      "Optimized batch loaders queries, reducing database connection pools load under heavy stress tests.",
-      "Containerized microservice gateway utilizing multi-stage Docker build files."
+      "Automated submission hook detecting successful test pass events.",
+      "Automatic markdown file builder creating structured repository directories.",
+      "Direct repository commits via OAuth2 authorization token tokens.",
+      "Interactive extensions drawer overlay showing sync states and history logs."
     ]
   },
   // ACADEMIC & CP
   {
     id: 'acad-cse',
     title: "B.Tech Computer Science Engineering",
-    subtitle: "Academic Coursework & Foundation",
-    period: "2023 - Present",
+    subtitle: "IIIT Bhopal (2024 - 2028)",
+    period: "2024 - 2028",
     category: 'academic',
     status: 'ACTIVE',
-    summary: "Pursuing a Bachelor of Technology in CSE, focusing on DSA, Operating Systems, DBMS, and Networks.",
+    summary: "Pursuing B.Tech in Computer Science Engineering at IIIT Bhopal (Batch of 2024-2028). Focusing on DSA, DBMS, Operating Systems, and System Architectures.",
     tech: ["Core CS", "Data Structures", "Operating Systems", "DBMS", "Computer Networks"],
     metrics: [
-      { label: 'CSE STATUS', value: 'Undergraduate' },
-      { label: 'CORE DEPT', value: 'Computer Science' },
-      { label: 'FOCUS', value: 'Systems / Systems Design' }
+      { label: 'COLLEGE', value: 'IIIT Bhopal' },
+      { label: 'CGPA', value: '9.01 / 10.0' },
+      { label: 'STATUS', value: 'Undergraduate' }
     ],
     details: [
-      "Maintaining strong academic scores across core engineering subjects.",
+      "Pursuing undergraduate program in Computer Science Engineering at IIIT Bhopal (Batch of 2024-2028) with a CGPA of 9.01.",
       "Acquired deep theoretical and practical understanding of CPU scheduler process threading and OSI networks.",
       "Studied relational models database management schemas, SQL indices, and transaction locks.",
       "Implemented custom search algorithms, graphs representations, and trees structures in C++."
+    ]
+  },
+  {
+    id: 'acad-12th',
+    title: "12th Standard (Higher Secondary)",
+    subtitle: "TGBIE Board",
+    period: "2022 - 2024",
+    category: 'academic',
+    status: 'COMPLETED',
+    summary: "Completed Higher Secondary education (Class XII) under the Telangana State Board of Intermediate Education (TGBIE) with a major focus on Physics, Chemistry, and Mathematics (MPC).",
+    tech: ["Mathematics", "Physics", "Chemistry"],
+    metrics: [
+      { label: 'BOARD', value: 'TGBIE' },
+      { label: 'PERCENTAGE', value: '98.2%' },
+      { label: 'STATUS', value: 'Completed' }
+    ],
+    details: [
+      "Completed Class XII board examinations with a score of 98.2% under TGBIE.",
+      "Acquired solid fundamental skills in Calculus, Coordinate Geometry, Mechanics, Electromagnetism, and Chemistry.",
+      "Demonstrated excellence in mathematical problem solving and science exhibition quizzes."
+    ]
+  },
+  {
+    id: 'acad-10th',
+    title: "10th Standard (Secondary Education)",
+    subtitle: "CBSE Board",
+    period: "2020 - 2022",
+    category: 'academic',
+    status: 'COMPLETED',
+    summary: "Completed Secondary School education (Class X) under the Central Board of Secondary Education (CBSE) with an exceptional academic record.",
+    tech: ["General Science", "Mathematics", "Social Sciences", "English"],
+    metrics: [
+      { label: 'BOARD', value: 'CBSE' },
+      { label: 'PERCENTAGE', value: '99%' },
+      { label: 'STATUS', value: 'Completed' }
+    ],
+    details: [
+      "Scored a cumulative 99% in CBSE Class X board examinations.",
+      "Recognized with certificates of merit for scoring perfect grades in Mathematics and General Sciences.",
+      "Established strong analytical foundations in mathematical reasoning and logic."
     ]
   },
   {
@@ -313,6 +416,18 @@ export default function Experience() {
                         {milestone.summary}
                       </p>
 
+                      {/* Metrics highlights directly on the card */}
+                      {milestone.metrics && (
+                        <div className="flex flex-wrap gap-2 mb-4">
+                          {milestone.metrics.map((metric) => (
+                            <div key={metric.label} className="flex items-center gap-1.5 px-2.5 py-1 rounded bg-white/[0.02] border border-white/5 font-mono text-[10px]">
+                              <span className="text-slate-500 uppercase text-[8.5px] tracking-wider">{metric.label}:</span>
+                              <span className="text-neon-cyan font-bold">{metric.value}</span>
+                            </div>
+                          ))}
+                        </div>
+                      )}
+
                       <div className="flex flex-wrap gap-2">
                         {milestone.tech.map((t) => (
                           <span
@@ -358,43 +473,43 @@ export default function Experience() {
               <div className="absolute bottom-0 right-0 w-6 h-6 border-b border-r border-neon-cyan/40 pointer-events-none" />
 
               {/* Console Header */}
-              <div className="flex items-center justify-between px-5 py-3.5 bg-white/5 border-b border-white/5 font-mono text-[10px] text-slate-400">
+              <div className="flex items-center justify-between px-5 py-4 bg-white/5 border-b border-white/5 font-mono text-xs text-slate-400">
                 <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 rounded-full bg-neon-cyan animate-pulse" />
+                  <div className="w-2.5 h-2.5 rounded-full bg-neon-cyan animate-pulse" />
                   <span className="font-semibold text-white tracking-wider">DK-HUD // MISSION LOG INSPECTOR</span>
                 </div>
-                <span className="text-[9px] uppercase font-bold text-neon-purple">{selectedMilestone.status}</span>
+                <span className="text-[11px] uppercase font-bold text-neon-purple">{selectedMilestone.status}</span>
               </div>
 
               {/* Console Body Output */}
-              <div className="p-5 font-mono text-[10px] leading-relaxed text-emerald-400 bg-black/75 space-y-4 select-text">
+              <div className="p-6 font-mono text-[12px] md:text-[13px] leading-relaxed text-emerald-400 bg-black/75 space-y-5 select-text">
                 
                 {/* Meta details */}
-                <div className="space-y-1 text-slate-300">
+                <div className="space-y-1.5 text-slate-300">
                   <p className="text-white font-bold">&gt; inspect_milestone --id={selectedMilestone.id}</p>
                   <p className="text-slate-500">Retrieving capability parameters...</p>
-                  <p className="text-cyan-300 font-bold uppercase mt-2">[LOG TELEMETRY RECEIVED]</p>
+                  <p className="text-cyan-300 font-bold uppercase mt-2.5">[LOG TELEMETRY RECEIVED]</p>
                 </div>
 
                 {/* Metrics highlights */}
                 {selectedMilestone.metrics && (
-                  <div className="grid grid-cols-3 gap-2 bg-[#06030c] p-2.5 rounded border border-white/5 text-[9px]">
+                  <div className="grid grid-cols-3 gap-3 bg-[#06030c] p-3.5 rounded border border-white/5">
                     {selectedMilestone.metrics.map((metric) => (
                       <div key={metric.label}>
-                        <span className="text-slate-500 block text-[8px] uppercase">{metric.label}</span>
-                        <span className="text-white font-semibold block mt-0.5">{metric.value}</span>
+                        <span className="text-slate-500 block text-[9.5px] uppercase tracking-wider">{metric.label}</span>
+                        <span className="text-white font-bold block mt-1 text-[13px]">{metric.value}</span>
                       </div>
                     ))}
                   </div>
                 )}
 
                 {/* Checklist Accomplishments */}
-                <div className="space-y-2">
+                <div className="space-y-3">
                   <span className="text-cyan-300 font-bold block">[MISSION ACCOMPLISHMENTS]</span>
-                  <ul className="space-y-2">
+                  <ul className="space-y-2.5">
                     {selectedMilestone.details.map((detail, index) => (
-                      <li key={index} className="flex items-start gap-2 text-emerald-400/90 leading-normal">
-                        <CheckCircle2 className="w-3.5 h-3.5 text-neon-cyan mt-0.5 flex-shrink-0" />
+                      <li key={index} className="flex items-start gap-2.5 text-emerald-400/90 leading-relaxed text-[12px] md:text-[13px]">
+                        <CheckCircle2 className="w-4 h-4 text-neon-cyan mt-0.5 flex-shrink-0" />
                         <span>{detail}</span>
                       </li>
                     ))}
@@ -402,10 +517,10 @@ export default function Experience() {
                 </div>
 
                 {/* Core Objective Status */}
-                <div className="pt-2 border-t border-white/5 flex items-center justify-between text-[9px] text-slate-400">
+                <div className="pt-3 border-t border-white/5 flex items-center justify-between text-[11px] text-slate-400">
                   <span>LOG INDEX STATUS // SYSTEM_OK</span>
                   <span className="flex items-center gap-1.5 text-neon-cyan font-bold">
-                    <Target className="w-3 h-3" /> VERIFIED BLUEPRINT
+                    <Target className="w-4 h-4" /> VERIFIED BLUEPRINT
                   </span>
                 </div>
 
