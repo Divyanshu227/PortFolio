@@ -72,18 +72,18 @@ Create a `.env` file in the root folder of the project. Configure the following 
 
 ```properties
 # Social Links
-VITE_GITHUB_URL=https://github.com/Divyanshu227
-VITE_LINKEDIN_URL=https://www.linkedin.com/in/divyanshu-kumar-jha-7a0439327/
-VITE_EMAIL=divyanshukumarjha47@gmail.com
+VITE_GITHUB_URL=https://github.com/your-github-username
+VITE_LINKEDIN_URL=https://www.linkedin.com/in/your-linkedin-username/
+VITE_EMAIL=your-email@example.com
 
 # Coding Profiles URLs
-VITE_LEETCODE_URL=https://leetcode.com/u/Divyanshu_KJ/
-VITE_CODECHEF_URL=https://www.codechef.com/users/divyanshu_4495
-VITE_GEEKSFORGEEKS_URL=https://www.geeksforgeeks.org/user/divyanshuk1twv/
+VITE_LEETCODE_URL=https://leetcode.com/u/your-leetcode-username/
+VITE_CODECHEF_URL=https://www.codechef.com/users/your-codechef-username
+VITE_GEEKSFORGEEKS_URL=https://www.geeksforgeeks.org/user/your-gfg-username/
 
 # Asset Resources URLs
-VITE_RESUME_URL=https://www.dropbox.com/scl/fi/fiw5o5a21y46lorlrw07o/autoCV-32.pdf?rlkey=26s7rhwypfio1xo0oochumwra&st=fvenmpyb&dl=0
-VITE_INTRO_VIDEO_URL=https://res.cloudinary.com/cxvvisl8/video/upload/v1782989605/portfoliointrovideo_rjrcn2.mp4
+VITE_RESUME_URL=https://www.dropbox.com/s/your-resume-share-id/resume.pdf
+VITE_INTRO_VIDEO_URL=https://res.cloudinary.com/your-cloud-id/video/upload/v123456/intro_video.mp4
 ```
 
 ---
