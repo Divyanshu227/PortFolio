@@ -1,8 +1,10 @@
-import { useEffect, useRef } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { Routes, Route, Navigate } from 'react-router-dom'
+import { AnimatePresence, motion } from 'framer-motion'
 import GlowBackground from './components/GlowBackground'
 import CustomCursor from './components/CustomCursor'
 import Navbar from './components/Navbar'
+import IntroOverlay from './components/IntroOverlay'
 import Home from './pages/home'
 import About from './pages/about'
 import Skills from './pages/skills'
@@ -11,6 +13,8 @@ import Experience from './pages/experience'
 import Contact from './pages/contact'
 
 function App() {
+  const [showIntro, setShowIntro] = useState(true)
+
   const clicksound = useRef(new Audio("/clicksound.mp3"))
 
   useEffect(() => {
@@ -26,6 +30,21 @@ function App() {
 
   return (
     <div className="relative min-h-screen font-sans selection:bg-neon-cyan/30 selection:text-white overflow-x-hidden antialiased">
+      {/* Cinematic Intro Video Overlay */}
+      <AnimatePresence mode="wait">
+        {showIntro && (
+          <motion.div
+            key="intro-video-overlay"
+            initial={{ opacity: 1 }}
+            exit={{ opacity: 0, scale: 1.05 }}
+            transition={{ duration: 1.0, ease: [0.43, 0.13, 0.23, 0.96] }}
+            className="fixed inset-0 z-[9999]"
+          >
+            <IntroOverlay onComplete={() => setShowIntro(false)} />
+          </motion.div>
+        )}
+      </AnimatePresence>
+
       {/* Custom Robotic HUD Cursor */}
       <CustomCursor />
 
