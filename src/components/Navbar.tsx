@@ -1,10 +1,11 @@
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
-import { Send, Menu, X, Sun, Moon } from 'lucide-react'
+import { Send, Menu, X, Sun, Moon, Maximize2, Minimize2 } from 'lucide-react'
 import { NavLink, Link } from 'react-router-dom'
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
+  const [isFullscreen, setIsFullscreen] = useState(false)
   const [theme, setTheme] = useState<'dark' | 'light'>(() => {
     if (typeof window !== 'undefined') {
       const saved = localStorage.getItem('theme')
@@ -22,6 +23,32 @@ export default function Navbar() {
     }
     localStorage.setItem('theme', theme)
   }, [theme])
+
+  useEffect(() => {
+    const handleFullscreenChange = () => {
+      setIsFullscreen(!!document.fullscreenElement)
+    }
+    document.addEventListener('fullscreenchange', handleFullscreenChange)
+    return () => {
+      document.removeEventListener('fullscreenchange', handleFullscreenChange)
+    }
+  }, [])
+
+  const toggleFullscreen = async () => {
+    try {
+      if (!document.fullscreenElement) {
+        if (document.documentElement.requestFullscreen) {
+          await document.documentElement.requestFullscreen()
+        }
+      } else {
+        if (document.exitFullscreen) {
+          await document.exitFullscreen()
+        }
+      }
+    } catch (err) {
+      console.error("Fullscreen toggle failed:", err)
+    }
+  }
 
   const navItems = [
     { name: 'Home', path: '/' },
@@ -126,6 +153,17 @@ export default function Navbar() {
 
           <div className="w-px h-5 bg-white/10" />
 
+          {/* Fullscreen Toggler */}
+          <button
+            onClick={toggleFullscreen}
+            className="p-2 rounded-full border border-white/10 hover:border-neon-cyan/50 hover:bg-white/5 text-slate-400 hover:text-white transition-all cursor-pointer flex items-center justify-center"
+            title={isFullscreen ? "Exit Fullscreen" : "Enter Fullscreen"}
+          >
+            {isFullscreen ? <Minimize2 className="w-4 h-4 text-neon-purple" /> : <Maximize2 className="w-4 h-4 text-neon-cyan" />}
+          </button>
+
+          <div className="w-px h-5 bg-white/10" />
+
           {/* Glowing Let's Talk Button */}
           <Link
             to="/contact"
@@ -193,6 +231,14 @@ export default function Navbar() {
                 title="Toggle Theme"
               >
                 {theme === 'light' ? <Moon className="w-4 h-4 text-neon-purple" /> : <Sun className="w-4 h-4 text-neon-cyan" />}
+              </button>
+
+              <button
+                onClick={toggleFullscreen}
+                className="p-1.5 rounded-full border border-white/10 text-slate-400 hover:text-white transition-all cursor-pointer flex items-center justify-center"
+                title="Toggle Fullscreen"
+              >
+                {isFullscreen ? <Minimize2 className="w-4 h-4 text-neon-purple" /> : <Maximize2 className="w-4 h-4 text-neon-cyan" />}
               </button>
             </div>
 
