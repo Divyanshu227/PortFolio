@@ -516,6 +516,39 @@ export default function Experience() {
                   </ul>
                 </div>
 
+                {/* Profile connectors for Competitive Programming */}
+                {selectedMilestone.id === 'acad-cp' && (
+                  <div className="space-y-2.5 pt-2.5 border-t border-white/5 font-mono">
+                    <span className="text-cyan-300 font-bold block uppercase text-[10px]">[PROFILE CONNECTORS]</span>
+                    <div className="flex flex-wrap gap-2">
+                      <a
+                        href="https://leetcode.com/u/Divyanshu_KJ/"
+                        target="_blank"
+                        rel="noreferrer"
+                        className="px-3 py-1.5 rounded bg-white/5 border border-white/10 hover:border-neon-cyan hover:text-white transition-all text-slate-300 text-[11px] font-semibold cursor-pointer"
+                      >
+                        LeetCode ↗
+                      </a>
+                      <a
+                        href="https://www.codechef.com/users/divyanshu_4495"
+                        target="_blank"
+                        rel="noreferrer"
+                        className="px-3 py-1.5 rounded bg-white/5 border border-white/10 hover:border-neon-purple hover:text-white transition-all text-slate-300 text-[11px] font-semibold cursor-pointer"
+                      >
+                        CodeChef ↗
+                      </a>
+                      <a
+                        href="https://www.geeksforgeeks.org/user/divyanshuk1twv/"
+                        target="_blank"
+                        rel="noreferrer"
+                        className="px-3 py-1.5 rounded bg-white/5 border border-white/10 hover:border-neon-blue hover:text-white transition-all text-slate-300 text-[11px] font-semibold cursor-pointer"
+                      >
+                        GeeksforGeeks ↗
+                      </a>
+                    </div>
+                  </div>
+                )}
+
                 {/* Core Objective Status */}
                 <div className="pt-3 border-t border-white/5 flex items-center justify-between text-[11px] text-slate-400">
                   <span>LOG INDEX STATUS // SYSTEM_OK</span>

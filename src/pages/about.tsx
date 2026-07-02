@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Brain, Code2, Cpu, Database, GitBranch, Globe, Sparkles, Terminal, Wrench, Layers } from 'lucide-react'
 import developerImg from '../assets/developer.jpg'
@@ -7,6 +7,57 @@ type TabType = 'toolkit' | 'problemSolving' | 'vision'
 
 export default function About() {
   const [activeTab, setActiveTab] = useState<TabType>('toolkit')
+  const [codingStats, setCodingStats] = useState({
+    leetcode: { solved: '600+', label: 'Solved' },
+    codechef: { rating: '1600+', label: 'Rating (3★)' },
+    gfg: { solved: '400+', label: 'Solved' }
+  })
+
+  useEffect(() => {
+    let active = true
+    const fetchStats = async () => {
+      try {
+        const lcRes = await fetch('https://leetcode-stats-api.herokuapp.com/Divyanshu_KJ')
+        if (lcRes.ok) {
+          const lcData = await lcRes.json()
+          if (lcData.status === 'success' && active) {
+            setCodingStats(prev => ({
+              ...prev,
+              leetcode: {
+                solved: `${lcData.totalSolved}`,
+                label: 'Solved Live'
+              }
+            }))
+          }
+        }
+      } catch (err) {
+        console.warn("Could not fetch live LeetCode stats:", err)
+      }
+
+      try {
+        const ccRes = await fetch('https://codechef-api.vercel.app/divyanshu_4495')
+        if (ccRes.ok) {
+          const ccData = await ccRes.json()
+          if (ccData.success && active) {
+            setCodingStats(prev => ({
+              ...prev,
+              codechef: {
+                rating: `${ccData.rating || '1600+'}`,
+                label: `Rating Live (${ccData.stars || '3★'})`
+              }
+            }))
+          }
+        }
+      } catch (err) {
+        console.warn("Could not fetch live CodeChef stats:", err)
+      }
+    }
+
+    fetchStats()
+    return () => {
+      active = false
+    }
+  }, [])
 
   const tabs = [
     { id: 'toolkit', label: 'Technical Toolkit', icon: Layers },
@@ -324,24 +375,53 @@ export default function About() {
                 </div>
 
                 <div className="grid grid-cols-3 gap-4">
-                  {/* LeetCode */}
-                  <div className="p-4 rounded-xl glass-panel border border-white/5 text-center">
-                    <span className="text-xs text-slate-400 block font-mono mb-1">LEETCODE</span>
-                    <span className="text-2xl font-bold text-white font-display">Solved</span>
-                    <span className="text-[10px] text-neon-cyan font-mono block mt-1">Hundreds</span>
-                  </div>
-                  {/* CodeChef */}
-                  <div className="p-4 rounded-xl glass-panel border border-white/5 text-center">
-                    <span className="text-xs text-slate-400 block font-mono mb-1">CODECHEF</span>
-                    <span className="text-2xl font-bold text-white font-display">Algorithmic</span>
-                    <span className="text-[10px] text-neon-purple font-mono block mt-1">Strengthened</span>
-                  </div>
-                  {/* GFG */}
-                  <div className="p-4 rounded-xl glass-panel border border-white/5 text-center">
-                    <span className="text-xs text-slate-400 block font-mono mb-1">GEEKSFORGEEKS</span>
-                    <span className="text-2xl font-bold text-white font-display">Structures</span>
-                    <span className="text-[10px] text-neon-blue font-mono block mt-1">Mastered</span>
-                  </div>
+                  {/* LeetCode Link Card */}
+                  <a
+                    href="https://leetcode.com/u/Divyanshu_KJ/"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="p-4 rounded-xl glass-panel border border-white/5 hover:border-neon-cyan/40 hover:shadow-[0_0_15px_rgba(6,182,212,0.15)] transition-all duration-300 text-center block group cursor-pointer"
+                  >
+                    <span className="text-xs text-slate-500 block font-mono mb-1 group-hover:text-neon-cyan transition-colors">LEETCODE</span>
+                    <span className="text-2xl font-bold text-white font-display">
+                      {codingStats.leetcode.solved}
+                    </span>
+                    <span className="text-[10px] text-neon-cyan font-mono block mt-1">
+                      {codingStats.leetcode.label}
+                    </span>
+                  </a>
+
+                  {/* CodeChef Link Card */}
+                  <a
+                    href="https://www.codechef.com/users/divyanshu_4495"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="p-4 rounded-xl glass-panel border border-white/5 hover:border-neon-purple/40 hover:shadow-[0_0_15px_rgba(168,85,247,0.15)] transition-all duration-300 text-center block group cursor-pointer"
+                  >
+                    <span className="text-xs text-slate-500 block font-mono mb-1 group-hover:text-neon-purple transition-colors">CODECHEF</span>
+                    <span className="text-2xl font-bold text-white font-display">
+                      {codingStats.codechef.rating}
+                    </span>
+                    <span className="text-[10px] text-neon-purple font-mono block mt-1">
+                      {codingStats.codechef.label}
+                    </span>
+                  </a>
+
+                  {/* GFG Link Card */}
+                  <a
+                    href="https://www.geeksforgeeks.org/user/divyanshuk1twv/"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="p-4 rounded-xl glass-panel border border-white/5 hover:border-neon-blue/40 hover:shadow-[0_0_15px_rgba(59,130,246,0.15)] transition-all duration-300 text-center block group cursor-pointer"
+                  >
+                    <span className="text-xs text-slate-500 block font-mono mb-1 group-hover:text-neon-blue transition-colors">GEEKSFORGEEKS</span>
+                    <span className="text-2xl font-bold text-white font-display">
+                      {codingStats.gfg.solved}
+                    </span>
+                    <span className="text-[10px] text-neon-blue font-mono block mt-1">
+                      {codingStats.gfg.label}
+                    </span>
+                  </a>
                 </div>
               </div>
 
