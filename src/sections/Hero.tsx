@@ -2,9 +2,7 @@ import { motion } from 'framer-motion'
 import { ArrowRight, Download } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import developerImg from '../assets/outdoor.png'
-import leetcodeLogo from '../assets/leetcodeLogo.png'
-import codechefLogo from '../assets/codechefLogo.png'
-import gfgLogo from '../assets/gfgLogo.png'
+import { Icon } from "@iconify/react"
 
 export default function Hero() {
   return (
@@ -77,7 +75,7 @@ export default function Hero() {
               title="LeetCode Profile"
               className="px-5 py-2.5 rounded-2xl bg-black border border-[#FFA116]/25 hover:border-[#FFA116] text-slate-300 hover:text-white transition-all duration-300 flex items-center justify-center cursor-pointer hover:shadow-[0_0_20px_rgba(255,161,22,0.3)]"
             >
-              <img src={leetcodeLogo} alt="LeetCode" className="h-6 object-contain" />
+              <Icon icon="simple-icons:leetcode" className="text-2xl" />
             </a>
 
             {/* CodeChef */}
@@ -88,7 +86,7 @@ export default function Hero() {
               title="CodeChef Profile"
               className="px-5 py-2.5 rounded-2xl bg-white border border-[#5B4636]/35 hover:border-[#967d6c] text-slate-300 hover:text-white transition-all duration-300 flex items-center justify-center cursor-pointer hover:shadow-[0_0_20px_rgba(150,125,108,0.3)]"
             >
-              <img src={codechefLogo} alt="CodeChef" className="h-6 object-contain" />
+              <Icon icon="simple-icons:codechef" className="text-2xl" />
             </a>
 
             {/* GeeksforGeeks */}
@@ -99,7 +97,7 @@ export default function Hero() {
               title="GeeksforGeeks Profile"
               className="px-5 py-2.5 rounded-2xl bg-white border border-[#2F8D46]/25 hover:border-[#2F8D46] text-slate-300 hover:text-white transition-all duration-300 flex items-center justify-center cursor-pointer hover:shadow-[0_0_20px_rgba(47,141,70,0.3)]"
             >
-              <img src={gfgLogo} alt="GeeksforGeeks" className="h-6 object-contain" />
+              <Icon icon="simple-icons:geeksforgeeks" className="text-2xl" />
             </a>
           </div>
         </div>

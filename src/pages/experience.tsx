@@ -8,9 +8,7 @@ import {
   CheckCircle2, 
   Target
 } from 'lucide-react'
-import leetcodeLogo from '../assets/leetcodeLogo.png'
-import codechefLogo from '../assets/codechefLogo.png'
-import gfgLogo from '../assets/gfgLogo.png'
+import { Icon } from "@iconify/react"
 
 // Define Log types
 type LogType = 'open-source' | 'shipments' | 'academic'
@@ -530,7 +528,7 @@ export default function Experience() {
                         rel="noreferrer"
                         className="px-4 py-2 rounded bg-black border border-[#FFA116]/20 hover:border-[#FFA116] hover:shadow-[0_0_10px_rgba(255,161,22,0.2)] transition-all cursor-pointer flex items-center justify-center"
                       >
-                        <img src={leetcodeLogo} alt="LeetCode" className="h-5.5 object-contain" />
+                        <Icon icon="simple-icons:leetcode" className="text-2xl" />
                       </a>
                       <a
                         href={import.meta.env.VITE_CODECHEF_URL}
@@ -538,7 +536,7 @@ export default function Experience() {
                         rel="noreferrer"
                         className="px-4 py-2 rounded bg-white border border-[#5B4636]/35 hover:border-[#967d6c] hover:shadow-[0_0_10px_rgba(150,125,108,0.2)] transition-all cursor-pointer flex items-center justify-center"
                       >
-                        <img src={codechefLogo} alt="CodeChef" className="h-5.5 object-contain" />
+                        <Icon icon="simple-icons:codechef" className="text-2xl" />
                       </a>
                       <a
                         href={import.meta.env.VITE_GEEKSFORGEEKS_URL}
@@ -546,7 +544,7 @@ export default function Experience() {
                         rel="noreferrer"
                         className="px-4 py-2 rounded bg-white border border-[#2F8D46]/20 hover:border-[#2F8D46] hover:shadow-[0_0_10px_rgba(47,141,70,0.2)] transition-all cursor-pointer flex items-center justify-center"
                       >
-                        <img src={gfgLogo} alt="GeeksforGeeks" className="h-5.5 object-contain" />
+                        <Icon icon="simple-icons:geeksforgeeks" className="text-2xl" />
                       </a>
                     </div>
                   </div>
