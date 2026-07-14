@@ -84,6 +84,15 @@ VITE_GEEKSFORGEEKS_URL=https://www.geeksforgeeks.org/user/your-gfg-username/
 # Asset Resources URLs
 VITE_RESUME_URL=https://www.dropbox.com/s/your-resume-share-id/resume.pdf
 VITE_INTRO_VIDEO_URL=https://res.cloudinary.com/your-cloud-id/video/upload/v123456/intro_video.mp4
+
+# Project Repositories URLs
+VITE_GITHUB_URL_STRATA=https://github.com/your-github-username/strata
+VITE_GITHUB_URL_MENTRA=https://github.com/your-github-username/mentra-ai
+VITE_GITHUB_URL_TRUSTGATE=https://github.com/your-github-username/trustgate
+VITE_GITHUB_URL_SECURETALK=https://github.com/your-github-username/securetalk
+VITE_GITHUB_URL_GYMBASE=https://github.com/your-github-username/gymbase
+VITE_GITHUB_URL_TRUEAUTH=https://github.com/your-github-username/trueauth
+VITE_GITHUB_URL_ELYSIUM=https://github.com/your-github-username/elysium
 ```
 
 ---

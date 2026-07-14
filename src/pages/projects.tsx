@@ -30,6 +30,7 @@ interface Project {
   }
   mockup: React.ReactNode
   videoUrl?: string
+  githubUrl?: string
 }
 
 export default function Projects() {
@@ -42,6 +43,7 @@ export default function Projects() {
     {
       title: 'Strata',
       category: 'web-apps',
+      githubUrl: import.meta.env.VITE_GITHUB_URL_STRATA,
       description: 'An intelligent, multi-channel message routing and notification platform that routes incoming messages directly to Discord, Telegram, and Email with built-in AI Spam Detection.',
       tags: [
         { name: 'Next.js', color: 'border-blue-500/30 text-blue-400 bg-blue-500/5' },
@@ -79,6 +81,7 @@ export default function Projects() {
     {
       title: 'Mentra AI',
       category: 'systems-ai',
+      githubUrl: import.meta.env.VITE_GITHUB_URL_MENTRA,
       description: 'An intelligent, AI-powered quiz generation platform allowing users to automatically create dynamic quizzes from simple text prompts or by uploading PDF/image documents.',
       tags: [
         { name: 'Next.js', color: 'border-blue-500/30 text-blue-400 bg-blue-500/5' },
@@ -117,6 +120,7 @@ export default function Projects() {
     {
       title: 'TrustGate',
       category: 'security',
+      githubUrl: import.meta.env.VITE_GITHUB_URL_TRUSTGATE,
       description: 'An AI-powered gateway for real-time threat detection, protecting platforms against spam, phishing, and toxic content using NLP and advanced heuristics.',
       tags: [
         { name: 'Next.js', color: 'border-blue-500/30 text-blue-400 bg-blue-500/5' },
@@ -158,6 +162,7 @@ export default function Projects() {
     {
       title: 'SecureTalk',
       category: 'security',
+      githubUrl: import.meta.env.VITE_GITHUB_URL_SECURETALK,
       description: 'A modern, feature-rich full-stack chat application enabling real-time messaging, conversation management, and secure JWT/bcrypt authentication with full message edit and delete support.',
       tags: [
         { name: 'React (TS)', color: 'border-blue-500/30 text-blue-400 bg-blue-500/5' },
@@ -206,6 +211,7 @@ export default function Projects() {
     {
       title: 'GymBase',
       category: 'web-apps',
+      githubUrl: import.meta.env.VITE_GITHUB_URL_GYMBASE,
       description: 'Interactive workout community platform featuring live rooms creation, trainer dashboards, membership subscription payments via Stripe, and transactional mail pipelines.',
       tags: [
         { name: 'MERN Stack', color: 'border-emerald-500/30 text-emerald-400 bg-emerald-500/5' },
@@ -257,6 +263,7 @@ export default function Projects() {
     {
       title: 'TrueAuth',
       category: 'security',
+      githubUrl: import.meta.env.VITE_GITHUB_URL_TRUEAUTH,
       description: 'A comprehensive client-side secure login gateway displaying multi-factor authentication, timed OTP validation codes, and session expiration audits.',
       tags: [
         { name: 'React', color: 'border-blue-500/30 text-blue-400 bg-blue-500/5' },
@@ -404,6 +411,7 @@ export default function Projects() {
     {
       title: 'Elysium',
       category: 'web-apps',
+      githubUrl: import.meta.env.VITE_GITHUB_URL_ELYSIUM,
       description: 'A lightweight developer browser extension that automatically captures successful GeeksforGeeks code submissions, structures files with descriptive readme info, and commits them instantly to a GitHub repository.',
       videoUrl: 'https://res.cloudinary.com/cxvvisl8/video/upload/f_auto,q_auto/v1782907780/elysiumintro_yaiirg.mp4',
       tags: [
@@ -762,17 +770,32 @@ export default function Projects() {
 
                 {/* Footer Buttons */}
                 <div className="flex flex-wrap gap-4 pt-6 border-t border-white/5 justify-end">
-                  <button
-                    type="button"
-                    onClick={() => { alert('Accessing secure code repository preview...') }}
-                    className="flex items-center gap-2 px-5 py-2.5 rounded-full border border-white/10 text-slate-300 hover:text-white hover:border-white/20 transition-all font-mono text-xs cursor-pointer bg-white/2"
-                  >
-                    <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
-                      <path d="M9 18c-4.51 2-5-2-7-2" />
-                    </svg>
-                    <span>Source Repository</span>
-                  </button>
+                  {selectedProject.githubUrl ? (
+                    <a
+                      href={selectedProject.githubUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="flex items-center gap-2 px-5 py-2.5 rounded-full border border-white/10 text-slate-300 hover:text-white hover:border-white/20 transition-all font-mono text-xs cursor-pointer bg-white/2"
+                    >
+                      <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
+                        <path d="M9 18c-4.51 2-5-2-7-2" />
+                      </svg>
+                      <span>Source Repository</span>
+                    </a>
+                  ) : (
+                    <button
+                      type="button"
+                      onClick={() => { alert('Accessing secure code repository preview...') }}
+                      className="flex items-center gap-2 px-5 py-2.5 rounded-full border border-white/10 text-slate-300 hover:text-white hover:border-white/20 transition-all font-mono text-xs cursor-pointer bg-white/2"
+                    >
+                      <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
+                        <path d="M9 18c-4.51 2-5-2-7-2" />
+                      </svg>
+                      <span>Source Repository</span>
+                    </button>
+                  )}
                   <button
                     type="button"
                     onClick={() => { alert('Connecting to live sandbox container deployment...') }}
