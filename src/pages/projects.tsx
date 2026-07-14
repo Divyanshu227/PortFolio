@@ -40,6 +40,122 @@ export default function Projects() {
   // Full projects dataset
   const projectsList: Project[] = [
     {
+      title: 'Strata',
+      category: 'web-apps',
+      description: 'An intelligent, multi-channel message routing and notification platform that routes incoming messages directly to Discord, Telegram, and Email with built-in AI Spam Detection.',
+      tags: [
+        { name: 'Next.js', color: 'border-blue-500/30 text-blue-400 bg-blue-500/5' },
+        { name: 'Kafka', color: 'border-purple-500/30 text-purple-400 bg-purple-500/5' },
+        { name: 'PostgreSQL', color: 'border-cyan-500/30 text-cyan-400 bg-cyan-500/5' },
+        { name: 'Redis', color: 'border-rose-500/30 text-rose-400 bg-rose-500/5' }
+      ],
+      features: [
+        'Centralized Inbox Dashboard for viewing and replying to messages.',
+        'Multi-Workspace Support for managing different platforms.',
+        'Flexible Notification Routing to Discord, Telegram, and Email.',
+        'TrustGate AI Integration for spam and phishing detection.'
+      ],
+      specs: {
+        database: 'PostgreSQL (Supabase)',
+        host: 'Vercel / Enterprise',
+        security: 'TrustGate AI Scanning',
+        gateway: 'Next.js API Routes'
+      },
+      mockup: (
+        <div className="relative w-full h-44 rounded-xl border border-white/5 bg-[#08070e] overflow-hidden flex flex-col p-3 shadow-inner">
+          <div className="flex items-center justify-between border-b border-white/5 pb-2 mb-2 font-mono text-[8px]">
+            <span className="text-slate-400">strata // inbox_router</span>
+            <span className="text-neon-cyan font-semibold">● ACTIVE</span>
+          </div>
+          <div className="flex-grow bg-black/60 rounded p-2 border border-white/5 space-y-1 font-mono text-[7.5px]">
+            <p className="text-white font-bold">&gt; Incoming message detected</p>
+            <p className="text-slate-500">Routing to Discord Webhook...</p>
+            <p className="text-emerald-400">TrustGate Score: 98% Safe</p>
+            <p className="text-neon-purple font-semibold">SUCCESS: Delivered to 3 channels</p>
+          </div>
+        </div>
+      )
+    },
+    {
+      title: 'Mentra AI',
+      category: 'systems-ai',
+      description: 'An intelligent, AI-powered quiz generation platform allowing users to automatically create dynamic quizzes from simple text prompts or by uploading PDF/image documents.',
+      tags: [
+        { name: 'Next.js', color: 'border-blue-500/30 text-blue-400 bg-blue-500/5' },
+        { name: 'Express', color: 'border-purple-500/30 text-purple-400 bg-purple-500/5' },
+        { name: 'Gemini API', color: 'border-cyan-500/30 text-cyan-400 bg-cyan-500/5' },
+        { name: 'Zustand', color: 'border-emerald-500/30 text-emerald-400 bg-emerald-500/5' }
+      ],
+      features: [
+        'AI Quiz Generation complete with multiple-choice options and explanations.',
+        'Multi-Modal Input accepting simple text prompts or file uploads.',
+        'Modern User Interface with interactive Framer Motion animations.',
+        'Robust Backend built with Express.js, TypeScript, and Prisma ORM.'
+      ],
+      specs: {
+        database: 'PostgreSQL Database',
+        host: 'Vercel & Render',
+        security: 'Session Authentication',
+        gateway: 'Express API Server'
+      },
+      mockup: (
+        <div className="relative w-full h-44 rounded-xl border border-white/5 bg-[#08070e] overflow-hidden flex flex-col p-3 shadow-inner">
+          <div className="flex items-center justify-between border-b border-white/5 pb-2 mb-2 font-mono text-[8px]">
+            <span className="text-slate-400">mentra-ai // generator</span>
+            <span className="text-neon-cyan animate-pulse">● GENERATING</span>
+          </div>
+          <div className="flex-grow flex items-center justify-center p-2 rounded bg-white/5 border border-white/10">
+            <div className="flex flex-col items-center gap-2">
+               <Sparkles className="w-6 h-6 text-neon-purple animate-pulse" />
+               <span className="text-[10px] text-white font-bold font-display">Generating Quiz...</span>
+               <span className="text-[7.5px] text-slate-500 font-mono">Parsing document context (Gemini)</span>
+            </div>
+          </div>
+        </div>
+      )
+    },
+    {
+      title: 'TrustGate',
+      category: 'security',
+      description: 'An AI-powered gateway for real-time threat detection, protecting platforms against spam, phishing, and toxic content using NLP and advanced heuristics.',
+      tags: [
+        { name: 'Next.js', color: 'border-blue-500/30 text-blue-400 bg-blue-500/5' },
+        { name: 'Machine Learning', color: 'border-purple-500/30 text-purple-400 bg-purple-500/5' },
+        { name: 'NLP', color: 'border-cyan-500/30 text-cyan-400 bg-cyan-500/5' },
+        { name: 'Docker', color: 'border-rose-500/30 text-rose-400 bg-rose-500/5' }
+      ],
+      features: [
+        'AI-Powered Threat Detection using Naive Bayes NLP classification.',
+        'Advanced Heuristics scanning for high-risk links and suspicious typography.',
+        'Real-Time Analysis API for analyzing messages on the fly.',
+        'Infrastructure Ready with docker-compose for PostgreSQL and Redis.'
+      ],
+      specs: {
+        database: 'PostgreSQL & Redis',
+        host: 'Docker Containers',
+        security: 'ML Classifier / Heuristics',
+        gateway: 'Next.js API Routes'
+      },
+      mockup: (
+        <div className="relative w-full h-44 rounded-xl border border-white/5 bg-[#08070e] overflow-hidden flex flex-col p-3 shadow-inner">
+          <div className="flex items-center justify-between border-b border-white/5 pb-2 mb-2 font-mono text-[8px]">
+            <span className="text-slate-400">trustgate // engine</span>
+            <span className="text-emerald-400 font-bold">SECURE</span>
+          </div>
+          <div className="flex-grow flex flex-col gap-2 font-mono text-[7.5px]">
+            <div className="bg-black/60 p-2 rounded border border-white/5 text-slate-300">
+               <span className="text-pink-500 font-bold">POST</span> /api/v1/analyze
+               <p className="mt-1">"Claim your free prize now! http://..."</p>
+            </div>
+            <div className="bg-rose-500/10 p-2 rounded border border-rose-500/20 text-rose-400 text-right">
+               <p className="font-bold">CLASSIFICATION: SPAM (99%)</p>
+               <p className="text-[6px] mt-0.5">Flags: Suspicious URL, Urgency Heuristics</p>
+            </div>
+          </div>
+        </div>
+      )
+    },
+    {
       title: 'SecureTalk',
       category: 'security',
       description: 'A modern, feature-rich full-stack chat application enabling real-time messaging, conversation management, and secure JWT/bcrypt authentication with full message edit and delete support.',
