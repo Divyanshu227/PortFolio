@@ -567,6 +567,7 @@ export default function Skills() {
 
   // Play micro click sound if needed
   const playClick = () => {
+    if (localStorage.getItem("soundEnabled") === "false") return
     clickSound.current.currentTime = 0
     clickSound.current.play().catch(() => {})
   }

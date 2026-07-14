@@ -19,6 +19,7 @@ function App() {
 
   useEffect(() => {
     const handleclick = () => {
+      if (localStorage.getItem("soundEnabled") === "false") return
       clicksound.current.currentTime = 0
       clicksound.current.play().catch(() => {})
     }

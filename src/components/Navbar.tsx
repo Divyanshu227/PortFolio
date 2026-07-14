@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
-import { Send, Menu, X, Sun, Moon, Maximize2, Minimize2 } from 'lucide-react'
+import { Send, Menu, X, Sun, Moon, Maximize2, Minimize2, Volume2, VolumeX } from 'lucide-react'
 import { NavLink, Link } from 'react-router-dom'
 
 export default function Navbar() {
@@ -13,6 +13,13 @@ export default function Navbar() {
     }
     return 'dark'
   })
+  const [soundEnabled, setSoundEnabled] = useState<boolean>(() => {
+    if (typeof window !== 'undefined') {
+      const saved = localStorage.getItem('soundEnabled')
+      if (saved === 'false') return false
+    }
+    return true
+  })
 
   useEffect(() => {
     const root = document.documentElement
@@ -23,6 +30,10 @@ export default function Navbar() {
     }
     localStorage.setItem('theme', theme)
   }, [theme])
+
+  useEffect(() => {
+    localStorage.setItem('soundEnabled', soundEnabled.toString())
+  }, [soundEnabled])
 
   useEffect(() => {
     const handleFullscreenChange = () => {
@@ -153,6 +164,17 @@ export default function Navbar() {
 
           <div className="w-px h-5 bg-white/10" />
 
+          {/* Sound Toggler */}
+          <button
+            onClick={() => setSoundEnabled(!soundEnabled)}
+            className="p-2 rounded-full border border-white/10 hover:border-neon-cyan/50 hover:bg-white/5 text-slate-400 hover:text-white transition-all cursor-pointer flex items-center justify-center"
+            title="Toggle Sound"
+          >
+            {soundEnabled ? <Volume2 className="w-4 h-4 text-neon-cyan" /> : <VolumeX className="w-4 h-4 text-neon-purple" />}
+          </button>
+
+          <div className="w-px h-5 bg-white/10" />
+
           {/* Fullscreen Toggler */}
           <button
             onClick={toggleFullscreen}
@@ -231,6 +253,14 @@ export default function Navbar() {
                 title="Toggle Theme"
               >
                 {theme === 'light' ? <Moon className="w-4 h-4 text-neon-purple" /> : <Sun className="w-4 h-4 text-neon-cyan" />}
+              </button>
+
+              <button
+                onClick={() => setSoundEnabled(!soundEnabled)}
+                className="p-1.5 rounded-full border border-white/10 text-slate-400 hover:text-white transition-all cursor-pointer flex items-center justify-center"
+                title="Toggle Sound"
+              >
+                {soundEnabled ? <Volume2 className="w-4 h-4 text-neon-cyan" /> : <VolumeX className="w-4 h-4 text-neon-purple" />}
               </button>
 
               <button

@@ -34,6 +34,7 @@ export default function Contact() {
   const clickSound = useRef(new Audio("/clicksound.mp3"))
 
   const playClick = () => {
+    if (localStorage.getItem("soundEnabled") === "false") return
     clickSound.current.currentTime = 0
     clickSound.current.play().catch(() => {})
   }
