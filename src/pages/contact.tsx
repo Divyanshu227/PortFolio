@@ -166,6 +166,7 @@ export default function Contact() {
   const commChannels = [
     {
       name: 'GitHub Profile',
+      subtitle: import.meta.env.VITE_GITHUB_URL?.replace('https://', '') || 'github.com/username',
       link: `${import.meta.env.VITE_GITHUB_URL}`,
       icon: (
         <svg className="w-5 h-5 text-[#f05032]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -173,10 +174,11 @@ export default function Contact() {
           <path d="M9 18c-4.51 2-5-2-7-2" />
         </svg>
       ),
-      glowClass: 'hover:border-[#f05032]/35 hover:shadow-[0_0_20px_rgba(240,80,50,0.1)]'
+      glowClass: 'hover:border-[#f05032]/50 hover:shadow-[0_0_20px_rgba(240,80,50,0.2)]'
     },
     {
       name: 'LinkedIn Network',
+      subtitle: 'Professional Connections',
       link: `${import.meta.env.VITE_LINKEDIN_URL}`,
       icon: (
         <svg className="w-5 h-5 text-neon-blue" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -185,13 +187,14 @@ export default function Contact() {
           <circle cx="4" cy="4" r="2" />
         </svg>
       ),
-      glowClass: 'hover:border-neon-blue/35 hover:shadow-[0_0_20px_rgba(59,130,246,0.1)]'
+      glowClass: 'hover:border-neon-blue/50 hover:shadow-[0_0_20px_rgba(59,130,246,0.2)]'
     },
     {
       name: 'Secure Node Email',
+      subtitle: import.meta.env.VITE_EMAIL || 'Direct Contact',
       link: `mailto:${import.meta.env.VITE_EMAIL}`,
       icon: <Mail className="w-5 h-5 text-neon-cyan" />,
-      glowClass: 'hover:border-neon-cyan/35 hover:shadow-[0_0_20px_rgba(6,182,212,0.1)]'
+      glowClass: 'hover:border-neon-cyan/50 hover:shadow-[0_0_20px_rgba(6,182,212,0.2)]'
     }
   ]
 
@@ -209,14 +212,14 @@ export default function Contact() {
         transition={{ duration: 0.8 }}
         className="text-center mb-14"
       >
-        <span className="text-[11px] text-neon-cyan font-mono tracking-widest uppercase mb-3 block px-3 py-1 rounded-full border border-neon-cyan/15 bg-neon-cyan/5 inline-block">
+        <span className="text-[13px] text-neon-cyan font-mono tracking-wide mb-3 px-4 py-1.5 rounded-full border border-neon-cyan/20 bg-neon-cyan/5 inline-block">
           Secure Channel
         </span>
         <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold font-display bg-gradient-to-r from-neon-purple via-neon-blue to-neon-cyan bg-clip-text text-transparent mb-4">
           Gateway Portal
         </h1>
         <div className="w-20 h-1 bg-gradient-to-r from-neon-purple to-neon-cyan mx-auto rounded-full mb-6" />
-        <p className="text-slate-400 text-sm md:text-base font-light max-w-2xl mx-auto leading-relaxed">
+        <p className="text-slate-300 text-[15px] font-light max-w-2xl mx-auto leading-[1.6]">
           Open a cryptographically secure message gateway or access direct network links to connect with me.
         </p>
       </motion.div>
@@ -232,38 +235,38 @@ export default function Contact() {
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="p-6 rounded-2xl glass-panel border border-white/5 relative overflow-hidden group hover:border-white/10 transition-all duration-300"
+            className="p-5 md:p-6 rounded-2xl glass-panel border border-white/10 relative overflow-hidden group hover:border-white/20 transition-all duration-300"
           >
-            <div className="absolute top-0 right-0 w-24 h-24 bg-white/[0.01] rounded-bl-full pointer-events-none" />
-            <div className="flex items-center gap-3 mb-6">
-              <Clock className="w-5 h-5 text-neon-cyan" />
+            <div className="absolute top-0 right-0 w-24 h-24 bg-white/[0.02] rounded-bl-full pointer-events-none" />
+            <div className="flex items-center gap-4 mb-5">
+              <Clock className="w-6 h-6 text-neon-cyan" />
               <div>
-                <span className="text-[9px] font-mono text-slate-500 uppercase tracking-wider block">Local Node Telemetry</span>
-                <span className="text-xs font-bold text-white font-display">Time & Coordinates</span>
+                <span className="text-[13px] font-mono text-slate-400 tracking-wide block">Local Node Telemetry</span>
+                <span className="text-[16px] font-semibold text-slate-100 font-display">Time & Coordinates</span>
               </div>
             </div>
             
-            <div className="space-y-4 font-mono text-xs">
-              <div className="flex justify-between border-b border-white/5 pb-2">
-                <span className="text-slate-500">TIME ZONE</span>
-                <span className="text-slate-200">IST (GMT +5:30)</span>
+            <div className="space-y-4 font-mono text-[14px] leading-[1.6]">
+              <div className="flex justify-between border-b border-white/10 pb-2">
+                <span className="text-slate-300">Time Zone</span>
+                <span className="text-slate-100 font-medium">IST (GMT +5:30)</span>
               </div>
-              <div className="flex justify-between border-b border-white/5 pb-2">
-                <span className="text-slate-500">CURRENT TIME</span>
-                <span className="text-neon-cyan font-bold tabular-nums">{istTime || "SYNCING..."}</span>
+              <div className="flex justify-between border-b border-white/10 pb-2">
+                <span className="text-slate-300">Current Time</span>
+                <span className="text-neon-cyan font-bold tabular-nums">{istTime || "Syncing..."}</span>
               </div>
               <div className="flex justify-between">
-                <span className="text-slate-500">LAT / LON</span>
-                <span className="text-slate-200 flex items-center gap-1">
-                  <MapPin className="w-3.5 h-3.5 text-neon-purple" /> 20.5937° N / 78.9629° E
+                <span className="text-slate-300">Lat / Lon</span>
+                <span className="text-slate-100 flex items-center gap-1.5 font-medium">
+                  <MapPin className="w-4 h-4 text-neon-purple" /> 20.5937° N / 78.9629° E
                 </span>
               </div>
             </div>
           </motion.div>
 
           {/* Social Channels Directory */}
-          <div className="space-y-4">
-            <span className="text-[10px] font-mono text-slate-500 uppercase tracking-widest block ml-1 mb-2">Secure Routing Directories</span>
+          <div className="space-y-3">
+            <span className="text-[13px] font-mono text-slate-400 tracking-wide block ml-1 mb-2">Secure Routing Directories</span>
             {commChannels.map((channel, idx) => (
               <motion.a
                 key={channel.name}
@@ -274,21 +277,24 @@ export default function Contact() {
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4, delay: idx * 0.1 }}
-                className={`p-5 rounded-2xl glass-panel border border-white/5 flex items-center justify-between group transition-all duration-300 ${channel.glowClass}`}
+                className={`p-4 rounded-2xl glass-panel border border-white/10 flex items-center justify-between group transition-all duration-300 ${channel.glowClass} hover:bg-white/[0.03]`}
               >
                 <div className="flex items-center gap-4">
-                  <div className="p-2.5 rounded-xl bg-white/5 border border-white/5 group-hover:bg-white/10 transition-colors">
+                  <div className="p-3 rounded-xl bg-white/5 border border-white/10 group-hover:bg-white/10 transition-colors shadow-inner">
                     {channel.icon}
                   </div>
-                  <div className="text-left">
-                    <span className="text-[9px] font-mono text-slate-500 uppercase block">{channel.name}</span>
-                    {/* <span className="text-xs font-bold text-slate-200 group-hover:text-white transition-colors">{channel.value}</span> */}
+                  <div className="text-left flex flex-col">
+                    <span className="text-[15px] font-semibold text-slate-100 tracking-wide">{channel.name}</span>
+                    <span className="text-[13px] font-light text-slate-400 mt-0.5 leading-[1.6]">{channel.subtitle}</span>
                   </div>
                 </div>
-                <div className="w-7 h-7 rounded-full border border-white/10 flex items-center justify-center text-slate-500 group-hover:text-white group-hover:border-white/20 transition-all">
-                  {/* <Globe className="w-3.5 h-3.5" /> */}
+                <button
+                  type="button"
+                  title="Copy Link"
+                  className="w-10 h-10 rounded-lg border border-white/20 bg-white/5 flex items-center justify-center text-slate-300 hover:text-white hover:border-white/40 hover:bg-white/10 hover:scale-105 hover:shadow-[0_0_15px_rgba(255,255,255,0.15)] active:scale-95 transition-all duration-300 cursor-pointer group-hover:border-white/30"
+                >
                   {copiedLink === channel.link ? (
-                    <CopyCheck className="w-3.5 h-3.5 text-emerald-400" />
+                    <CopyCheck className="w-4 h-4 text-emerald-400 drop-shadow-[0_0_5px_rgba(16,185,129,0.5)]" />
                   ) : (
                     <svg 
                       onClick={(e) => CopyEmail(e, channel.link)} 
@@ -301,25 +307,25 @@ export default function Contact() {
                       strokeWidth="2" 
                       strokeLinecap="round" 
                       strokeLinejoin="round" 
-                      className="lucide lucide-copy-icon lucide-copy w-3.5 h-3.5 cursor-pointer"
+                      className="w-4 h-4"
                     >
                       <rect width="14" height="14" x="8" y="8" rx="2" ry="2"/>
                       <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/>
                     </svg>
                   )}
-                </div>
+                </button>
               </motion.a>
             ))}
           </div>
 
           {/* Interactive node visual matrix */}
-          <div className="hidden lg:block p-6 rounded-2xl glass-panel border border-white/5 relative overflow-hidden h-36 bg-[#040308]/40">
+          <div className="hidden lg:block p-5 rounded-2xl glass-panel border border-white/10 relative overflow-hidden h-36 bg-[#040308]/60">
             <div className="absolute inset-0 bg-grid-pattern bg-size-[20px_20px] opacity-[0.15] animate-grid-move pointer-events-none" />
-            <div className="relative z-10 flex flex-col justify-between h-full font-mono text-[9px] text-slate-500 text-left">
-              <span className="text-neon-purple tracking-[0.2em] font-bold">NODE SECURITY MATRIX</span>
-              <p className="leading-relaxed text-slate-400 font-light">TLS 1.3 // Diffie-Hellman handshake secure routing enabled. Transmitted messages derived client-side to prevent network packet leaks.</p>
-              <div className="flex gap-1.5 items-center text-[8px] text-neon-cyan animate-pulse">
-                <Activity className="w-3.5 h-3.5 text-neon-cyan" /> NODE_ONLINE // ENCRYPTED
+            <div className="relative z-10 flex flex-col justify-between h-full font-mono text-[13px] text-slate-400 text-left">
+              <span className="text-neon-purple tracking-widest font-semibold">NODE SECURITY MATRIX</span>
+              <p className="leading-[1.6] text-slate-300 font-light">TLS 1.3 // Diffie-Hellman handshake secure routing enabled. Transmitted messages derived client-side to prevent network packet leaks.</p>
+              <div className="flex gap-2 items-center text-[12px] text-neon-cyan animate-pulse font-medium">
+                <Activity className="w-4 h-4 text-neon-cyan" /> Node Online // Encrypted
               </div>
             </div>
           </div>
@@ -334,20 +340,20 @@ export default function Contact() {
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="p-6 md:p-8 rounded-2xl glass-panel border border-white/5 bg-[#040308]/80 text-left relative overflow-hidden"
+            className="p-6 md:p-8 rounded-2xl glass-panel border border-white/10 bg-[#040308]/80 text-left relative overflow-hidden"
           >
             {/* Corner accents */}
             <div className="absolute top-0 left-0 w-6 h-6 border-t border-l border-neon-cyan/40 pointer-events-none" />
             <div className="absolute top-0 right-0 w-6 h-6 border-t border-r border-neon-purple/40 pointer-events-none" />
 
-            <form onSubmit={handleTransmitPayload} className="space-y-5">
+            <form onSubmit={handleTransmitPayload} className="space-y-6">
               
               {/* Form Inputs Grid */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 {/* Name */}
-                <div className="space-y-1.5">
-                  <label className="text-[10px] font-mono text-slate-500 uppercase tracking-wider flex items-center gap-1.5">
-                    <User className="w-3 h-3 text-neon-cyan" /> Name
+                <div className="space-y-2">
+                  <label className="text-[13px] font-mono text-slate-300 tracking-wide flex items-center gap-2">
+                    <User className="w-4 h-4 text-neon-cyan" /> Name
                   </label>
                   <input
                     type="text"
@@ -355,14 +361,14 @@ export default function Contact() {
                     onChange={(e) => setName(e.target.value)}
                     placeholder="Identify yourself..."
                     disabled={isSubmitting}
-                    className="w-full px-4 py-2.5 rounded-xl bg-black/40 border border-white/5 text-sm text-slate-200 placeholder:text-slate-600 focus:outline-none focus:border-neon-cyan/50 focus:ring-1 focus:ring-neon-cyan/25 transition-all duration-300"
+                    className="w-full px-4 py-3 rounded-xl bg-black/50 border border-white/10 text-[15px] text-slate-100 placeholder:text-slate-500 focus:outline-none focus:border-neon-cyan/60 focus:ring-1 focus:ring-neon-cyan/30 transition-all duration-300"
                   />
                 </div>
                 
                 {/* Email */}
-                <div className="space-y-1.5">
-                  <label className="text-[10px] font-mono text-slate-500 uppercase tracking-wider flex items-center gap-1.5">
-                    <Mail className="w-3 h-3 text-neon-cyan" /> Secure Email
+                <div className="space-y-2">
+                  <label className="text-[13px] font-mono text-slate-300 tracking-wide flex items-center gap-2">
+                    <Mail className="w-4 h-4 text-neon-cyan" /> Secure Email
                   </label>
                   <input
                     type="email"
@@ -370,15 +376,15 @@ export default function Contact() {
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="secure@example.com"
                     disabled={isSubmitting}
-                    className="w-full px-4 py-2.5 rounded-xl bg-black/40 border border-white/5 text-sm text-slate-200 placeholder:text-slate-600 focus:outline-none focus:border-neon-cyan/50 focus:ring-1 focus:ring-neon-cyan/25 transition-all duration-300"
+                    className="w-full px-4 py-3 rounded-xl bg-black/50 border border-white/10 text-[15px] text-slate-100 placeholder:text-slate-500 focus:outline-none focus:border-neon-cyan/60 focus:ring-1 focus:ring-neon-cyan/30 transition-all duration-300"
                   />
                 </div>
               </div>
 
               {/* Subject */}
-              <div className="space-y-1.5">
-                <label className="text-[10px] font-mono text-slate-500 uppercase tracking-wider flex items-center gap-1.5">
-                  <MessageSquare className="w-3 h-3 text-neon-purple" /> Subject
+              <div className="space-y-2">
+                <label className="text-[13px] font-mono text-slate-300 tracking-wide flex items-center gap-2">
+                  <MessageSquare className="w-4 h-4 text-neon-purple" /> Subject
                 </label>
                 <input
                   type="text"
@@ -386,14 +392,14 @@ export default function Contact() {
                   onChange={(e) => setSubject(e.target.value)}
                   placeholder="Payload objective..."
                   disabled={isSubmitting}
-                  className="w-full px-4 py-2.5 rounded-xl bg-black/40 border border-white/5 text-sm text-slate-200 placeholder:text-slate-600 focus:outline-none focus:border-neon-purple/50 focus:ring-1 focus:ring-neon-purple/25 transition-all duration-300"
+                  className="w-full px-4 py-3 rounded-xl bg-black/50 border border-white/10 text-[15px] text-slate-100 placeholder:text-slate-500 focus:outline-none focus:border-neon-purple/60 focus:ring-1 focus:ring-neon-purple/30 transition-all duration-300"
                 />
               </div>
 
               {/* Message */}
-              <div className="space-y-1.5">
-                <label className="text-[10px] font-mono text-slate-500 uppercase tracking-wider flex items-center gap-1.5">
-                  <TerminalIcon className="w-3 h-3 text-neon-cyan" /> Message Body
+              <div className="space-y-2">
+                <label className="text-[13px] font-mono text-slate-300 tracking-wide flex items-center gap-2">
+                  <TerminalIcon className="w-4 h-4 text-neon-cyan" /> Message Body
                 </label>
                 <textarea
                   value={message}
@@ -401,7 +407,7 @@ export default function Contact() {
                   placeholder="Write message contents here..."
                   disabled={isSubmitting}
                   rows={4}
-                  className="w-full px-4 py-3 rounded-xl bg-black/40 border border-white/5 text-sm text-slate-200 placeholder:text-slate-600 focus:outline-none focus:border-neon-cyan/50 focus:ring-1 focus:ring-neon-cyan/25 transition-all duration-300 resize-none"
+                  className="w-full px-4 py-3 rounded-xl bg-black/50 border border-white/10 text-[15px] text-slate-100 placeholder:text-slate-500 focus:outline-none focus:border-neon-cyan/60 focus:ring-1 focus:ring-neon-cyan/30 transition-all duration-300 resize-none leading-[1.6]"
                 />
               </div>
 
@@ -409,10 +415,10 @@ export default function Contact() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full py-3.5 rounded-xl border border-neon-cyan text-white text-xs font-mono font-bold tracking-widest uppercase hover:shadow-[0_0_20px_rgba(6,182,212,0.25)] transition-all duration-300 cursor-pointer flex items-center justify-center gap-2 bg-gradient-to-r from-neon-purple/20 to-neon-cyan/20 disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full py-4 rounded-xl border border-neon-cyan/50 text-white text-[15px] font-mono font-semibold tracking-wide hover:shadow-[0_0_20px_rgba(6,182,212,0.3)] hover:bg-neon-cyan/10 hover:border-neon-cyan transition-all duration-300 cursor-pointer flex items-center justify-center gap-2 bg-gradient-to-r from-neon-purple/15 to-neon-cyan/15 disabled:opacity-50 disabled:cursor-not-allowed group"
               >
-                <Send className="w-4 h-4 text-neon-cyan animate-pulse" />
-                {isSubmitting ? "TRANSMITTING ENVELOPE..." : "TRANSMIT ENCRYPTED PAYLOAD"}
+                <Send className="w-4 h-4 text-neon-cyan group-hover:scale-110 transition-transform" />
+                {isSubmitting ? "Transmitting Envelope..." : "Transmit Encrypted Payload"}
               </button>
 
             </form>
@@ -426,23 +432,23 @@ export default function Contact() {
             className="rounded-2xl bg-[#030208]/90 border border-white/10 overflow-hidden shadow-[0_15px_40px_rgba(0,0,0,0.6)] relative flex flex-col"
           >
             {/* Terminal Top tab bar */}
-            <div className="flex items-center justify-between px-5 py-3 bg-white/5 border-b border-white/5 font-mono text-[9px] text-slate-400 select-none">
-              <div className="flex items-center gap-2">
-                <div className="flex gap-1">
-                  <span className="w-2 h-2 rounded-full bg-rose-500/80 cursor-pointer" onClick={() => setTerminalLogs([])} title="Clear logs" />
-                  <span className="w-2 h-2 rounded-full bg-emerald-500/80" />
+            <div className="flex items-center justify-between px-5 py-3 bg-white/5 border-b border-white/10 font-mono text-[13px] text-slate-300 select-none">
+              <div className="flex items-center gap-3">
+                <div className="flex gap-2">
+                  <span className="w-2.5 h-2.5 rounded-full bg-rose-500/90 cursor-pointer hover:shadow-[0_0_8px_rgba(244,63,94,0.6)] transition-all" onClick={() => setTerminalLogs([])} title="Clear logs" />
+                  <span className="w-2.5 h-2.5 rounded-full bg-emerald-500/90 hover:shadow-[0_0_8px_rgba(16,185,129,0.6)] transition-all" />
                 </div>
-                <span className="w-px h-3 bg-white/10 mx-1.5" />
-                <div className="flex items-center gap-1.5">
-                  <TerminalIcon className="w-3 h-3 text-neon-cyan" />
-                  <span className="font-semibold text-white tracking-wide">DK-HUD // SMTP GATEWAY LOGS</span>
+                <span className="w-px h-3 bg-white/20 mx-1" />
+                <div className="flex items-center gap-2">
+                  <TerminalIcon className="w-4 h-4 text-neon-cyan" />
+                  <span className="font-semibold text-slate-100 tracking-wide">DK-HUD // SMTP Gateway Logs</span>
                 </div>
               </div>
-              <span className="text-[8px] text-slate-500">AES-256 Enabled</span>
+              <span className="text-[12px] text-slate-400">AES-256 Enabled</span>
             </div>
 
             {/* Terminal logs area */}
-            <div className="p-4 h-36 overflow-y-auto font-mono text-[10px] leading-relaxed text-emerald-400 bg-black/75 scrollbar-thin select-text text-left">
+            <div className="p-5 h-44 overflow-y-auto font-mono text-[13px] leading-[1.6] text-emerald-400 bg-black/80 scrollbar-thin select-text text-left">
               <div className="space-y-1">
                 {terminalLogs.map((line, idx) => {
                   let colorClass = "text-emerald-400/90"
