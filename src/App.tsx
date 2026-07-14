@@ -71,13 +71,18 @@ function App() {
         </main>
 
         {/* Elegant Cyberpunk Footer */}
-        <footer className="w-full max-w-7xl mx-auto px-6 md:px-8 py-8 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-4 select-none">
-          <span className="text-[11px] text-slate-500 font-semibold tracking-widest uppercase">
-            © {new Date().getFullYear()} DivyanshuKJ. All Rights Reserved.
-          </span>
-          <span className="text-[10px] text-slate-600 font-mono tracking-wide">
-            engineered with React + TS + Tailwind CSS v4 + Framer Motion
-          </span>
+        <footer className="w-full max-w-7xl mx-auto px-6 md:px-8 py-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4 select-none relative z-10 mt-auto">
+          <div className="flex items-center gap-2">
+            <span className="text-[13px] text-slate-400 font-semibold tracking-wide">
+              © {new Date().getFullYear()} DivyanshuKJ. All Rights Reserved.
+            </span>
+          </div>
+          <div className="flex items-center gap-2.5 opacity-80 hover:opacity-100 transition-opacity">
+            <span className="w-1.5 h-1.5 rounded-full bg-neon-cyan animate-pulse" />
+            <span className="text-[12px] text-slate-400 font-mono tracking-wide">
+              Engineered with React + TS + Tailwind CSS + Framer Motion
+            </span>
+          </div>
         </footer>
       </div>
     </div>
