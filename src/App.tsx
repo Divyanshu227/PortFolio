@@ -1,7 +1,8 @@
 import { useState, useEffect, useRef } from 'react'
 import { Routes, Route, Navigate, Link } from 'react-router-dom'
 import { AnimatePresence, motion } from 'framer-motion'
-import { Github, Linkedin, Mail, Twitter, Terminal, ChevronRight } from 'lucide-react'
+import { Mail, Terminal, ChevronRight } from 'lucide-react'
+import { Icon } from '@iconify/react'
 import GlowBackground from './components/GlowBackground'
 import CustomCursor from './components/CustomCursor'
 import Navbar from './components/Navbar'
@@ -119,13 +120,13 @@ function App() {
                 <h3 className="text-sm font-semibold text-slate-200 tracking-wide uppercase">Network</h3>
                 <div className="flex flex-wrap gap-3">
                   <a href={import.meta.env.VITE_GITHUB_URL || "https://github.com"} target="_blank" rel="noreferrer" className="p-2.5 rounded-xl bg-white/5 border border-white/10 hover:border-white/30 hover:bg-white/10 text-slate-300 hover:text-white transition-all hover:scale-105 hover:shadow-[0_0_15px_rgba(255,255,255,0.1)]">
-                    <Github className="w-4 h-4" />
+                    <Icon icon="simple-icons:github" className="w-4 h-4" />
                   </a>
                   <a href={import.meta.env.VITE_LINKEDIN_URL || "https://linkedin.com"} target="_blank" rel="noreferrer" className="p-2.5 rounded-xl bg-white/5 border border-white/10 hover:border-neon-blue/50 hover:bg-neon-blue/10 hover:shadow-[0_0_15px_rgba(59,130,246,0.3)] text-slate-300 hover:text-neon-blue transition-all hover:scale-105">
-                    <Linkedin className="w-4 h-4" />
+                    <Icon icon="simple-icons:linkedin" className="w-4 h-4" />
                   </a>
                   <a href="https://twitter.com" target="_blank" rel="noreferrer" className="p-2.5 rounded-xl bg-white/5 border border-white/10 hover:border-sky-400/50 hover:bg-sky-400/10 hover:shadow-[0_0_15px_rgba(56,189,248,0.3)] text-slate-300 hover:text-sky-400 transition-all hover:scale-105">
-                    <Twitter className="w-4 h-4" />
+                    <Icon icon="simple-icons:x" className="w-4 h-4" />
                   </a>
                   <Link to="/contact" className="p-2.5 rounded-xl bg-white/5 border border-white/10 hover:border-neon-cyan/50 hover:bg-neon-cyan/10 hover:shadow-[0_0_15px_rgba(6,182,212,0.3)] text-slate-300 hover:text-neon-cyan transition-all hover:scale-105">
                     <Mail className="w-4 h-4" />
