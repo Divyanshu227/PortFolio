@@ -93,6 +93,11 @@ VITE_GITHUB_URL_SECURETALK=https://github.com/your-github-username/securetalk
 VITE_GITHUB_URL_GYMBASE=https://github.com/your-github-username/gymbase
 VITE_GITHUB_URL_TRUEAUTH=https://github.com/your-github-username/trueauth
 VITE_GITHUB_URL_ELYSIUM=https://github.com/your-github-username/elysium
+
+# Strata Contact Form API Integration
+VITE_STRATA_API_ENDPOINT=https://strata-zt3x.vercel.app/api/messages
+VITE_STRATA_PROJECT_ID=YOUR_PROJECT_ID
+VITE_STRATA_API_KEY=YOUR_API_KEY
 ```
 
 ---

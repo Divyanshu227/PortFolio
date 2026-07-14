@@ -83,7 +83,7 @@ export default function Contact() {
   }, [terminalLogs])
 
   // Form handler
-  const handleTransmitPayload = (e: React.FormEvent) => {
+  const handleTransmitPayload = async (e: React.FormEvent) => {
     e.preventDefault()
     playClick()
 
@@ -97,9 +97,6 @@ export default function Contact() {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
     if (!email.trim() || !emailRegex.test(email)) {
       errors.push("A valid Security Email is required.")
-    }
-    if (!subject.trim()) {
-      errors.push("Payload Subject cannot be empty.")
     }
     if (!message.trim() || message.length < 10) {
       errors.push("Message Body must be at least 10 characters.")
@@ -116,50 +113,63 @@ export default function Contact() {
       return
     }
 
-    // Pass validation, trigger SMTP simulation
+    // Pass validation, trigger actual API call
     setIsSubmitting(true)
     setSubmittedSuccessfully(false)
     setTerminalLogs([
-      `> transmit --payload --sender="${name}" --subject="${subject}"`,
+      `> transmit --payload --sender="${name}" --subject="${subject || 'NONE'}"`,
       `[TRANSMISSION INITIATED]`,
-      `DK-HUD // CONNECTING TO ENCRYPTED SMTP SERVER NODE...`
+      `DK-HUD // CONNECTING TO STRATA ROUTING ENDPOINT...`,
+      `STATUS: SECURE HANDSHAKE COMPLETED. EPHEMERAL KEYS EXCHANGED.`,
+      `ENCRYPTING PAYLOAD ENVELOPE PROTOCOLS [AES-256-GCM]...`,
+      `DISPATCHING CRYPTO PACKET TO REMOTE SERVER...`
     ])
 
-    const transmissionSteps = [
-      "STATUS: SECURE HANDSHAKE COMPLETED. EPHEMERAL KEYS EXCHANGED.",
-      "ENCRYPTING PAYLOAD ENVELOPE PROTOCOLS [AES-256-GCM]...",
-      "DISPATCHING CRYPTO PACKET TO divyanshukj@gmail.com...",
-      "SUCCESS: 200 OK. TRANSMISSION RECEIVED BY CLIENT MAILBOX GATEWAY.",
-      "[TRANSMISSION TERMINATED]"
-    ]
+    try {
+      const endpoint = import.meta.env.VITE_STRATA_API_ENDPOINT || 'https://strata-zt3x.vercel.app/api/messages'
+      
+      const response = await fetch(endpoint, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'x-project-id': import.meta.env.VITE_STRATA_PROJECT_ID || '',
+          'Authorization': `Bearer ${import.meta.env.VITE_STRATA_API_KEY || ''}`
+        },
+        body: JSON.stringify({ name, email, subject, message })
+      })
 
-    // Timed log logs output
-    setTimeout(() => {
-      setTerminalLogs(prev => [...prev, transmissionSteps[0]])
-    }, 450)
+      const data = await response.json().catch(() => ({}))
 
-    setTimeout(() => {
-      setTerminalLogs(prev => [...prev, transmissionSteps[1]])
-    }, 950)
-
-    setTimeout(() => {
-      setTerminalLogs(prev => [...prev, transmissionSteps[2]])
-    }, 1450)
-
-    setTimeout(() => {
-      setTerminalLogs(prev => [...prev, transmissionSteps[3]])
+      if (response.ok && (data.success || response.status === 200)) {
+        setTerminalLogs(prev => [
+          ...prev,
+          `SUCCESS: 200 OK. TRANSMISSION RECEIVED BY STRATA GATEWAY.`,
+          `[TRANSMISSION TERMINATED]`
+        ])
+        setSubmittedSuccessfully(true)
+        // Reset form fields
+        setName('')
+        setEmail('')
+        setSubject('')
+        setMessage('')
+      } else {
+        setTerminalLogs(prev => [
+          ...prev,
+          `[TRANSMISSION FAILED] SERVER RESPONDED WITH ERROR:`,
+          `  - ${data.message || response.statusText || 'Unknown error occurred'}`,
+          `TRANSMISSION ABORTED.`
+        ])
+      }
+    } catch (error: any) {
+      setTerminalLogs(prev => [
+        ...prev,
+        `[NETWORK ERROR] FAILED TO REACH STRATA GATEWAY:`,
+        `  - ${error.message || 'Network request failed'}`,
+        `TRANSMISSION ABORTED.`
+      ])
+    } finally {
       setIsSubmitting(false)
-      setSubmittedSuccessfully(true)
-      // Reset form fields
-      setName('')
-      setEmail('')
-      setSubject('')
-      setMessage('')
-    }, 2050)
-
-    setTimeout(() => {
-      setTerminalLogs(prev => [...prev, transmissionSteps[4]])
-    }, 2450)
+    }
   }
 
   // Social channels credentials
