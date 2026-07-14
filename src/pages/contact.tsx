@@ -126,14 +126,12 @@ export default function Contact() {
     ])
 
     try {
-      const endpoint = import.meta.env.VITE_STRATA_API_ENDPOINT || 'https://strata-zt3x.vercel.app/api/messages'
+      const endpoint = '/api/contact'
       
       const response = await fetch(endpoint, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'x-project-id': import.meta.env.VITE_STRATA_PROJECT_ID || '',
-          'Authorization': `Bearer ${import.meta.env.VITE_STRATA_API_KEY || ''}`
         },
         body: JSON.stringify({ name, email, subject, message })
       })
