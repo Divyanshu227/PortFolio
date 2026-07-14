@@ -136,48 +136,6 @@ const milestonesData: Milestone[] = [
     ]
   },
   {
-    id: 'ship-evalio',
-    title: "Evalio AI & Resume System Shipped",
-    subtitle: "AI-powered Resume Analysis Platform (v1.0.2)",
-    period: "November 2025",
-    category: 'shipments',
-    status: 'DEPLOYED',
-    summary: "An intelligent AI-powered resume analysis platform parsing document layouts, matching credentials against candidate search queries, scoring ATS compatibility, and highlighting structural improvements.",
-    tech: ["Next.js", "FastAPI", "Gemini API", "Vector Search"],
-    metrics: [
-      { label: 'VERSION', value: 'v1.0.2' },
-      { label: 'AI MODEL', value: 'Gemini API' },
-      { label: 'VECTOR DB', value: 'Qdrant / Postgres' }
-    ],
-    details: [
-      "PDF/DOCX layout parsing using advanced NLP heuristics.",
-      "ATS-compatibility check scoring resume matches out of 100.",
-      "Interactive feedback generator highlighting spelling, grammar, and style issues.",
-      "Semantic search matching capabilities powered by Gemini and Qdrant."
-    ]
-  },
-  {
-    id: 'ship-klyft',
-    title: "Klyft E-commerce Platform Launched",
-    subtitle: "High-Performance Modern E-commerce (v1.0.0)",
-    period: "October 2025",
-    category: 'shipments',
-    status: 'DEPLOYED',
-    summary: "A high-performance modern e-commerce platform built with micro-frontends, server-side rendering, Stripe multi-currency processing, and automatic inventory synchronizations.",
-    tech: ["React Router", "Node.js", "Stripe API", "PostgreSQL"],
-    metrics: [
-      { label: 'VERSION', value: 'v1.0.0' },
-      { label: 'ORM', value: 'Prisma ORM' },
-      { label: 'DEPLOYMENT', value: 'Fly.io + AWS' }
-    ],
-    details: [
-      "Instantaneous server-side rendering for optimal SEO and sub-second load times.",
-      "Flexible shopping cart state linked with LocalStorage and account synchronization.",
-      "Secure multi-currency checkouts integrated via Stripe Elements.",
-      "Real-time transactional notification emails sent upon order completion."
-    ]
-  },
-  {
     id: 'ship-elysium',
     title: "Elysium Extension Published",
     subtitle: "Developer Chrome Extension (v1.0.0)",
