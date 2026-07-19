@@ -14,7 +14,27 @@ export default function IntroOverlay({ onComplete }: IntroOverlayProps) {
     }
     return true
   })
+  const [videoSrc, setVideoSrc] = useState(() => {
+    if (typeof window !== 'undefined') {
+      return window.innerWidth <= 767 
+        ? import.meta.env.VITE_INTRO_VIDEO_MOBILE_URL
+        : import.meta.env.VITE_INTRO_VIDEO_URL;
+    }
+    return import.meta.env.VITE_INTRO_VIDEO_URL;
+  })
   const videoRef = useRef<HTMLVideoElement>(null)
+
+  useEffect(() => {
+    const handleResize = () => {
+      setVideoSrc(
+        window.innerWidth <= 767 
+          ? import.meta.env.VITE_INTRO_VIDEO_MOBILE_URL
+          : import.meta.env.VITE_INTRO_VIDEO_URL
+      )
+    }
+    window.addEventListener('resize', handleResize)
+    return () => window.removeEventListener('resize', handleResize)
+  }, [])
 
   // Disable scrolling while the intro video is active
   useEffect(() => {
@@ -113,7 +133,7 @@ export default function IntroOverlay({ onComplete }: IntroOverlayProps) {
       {/* The Cinematic Video Element */}
       <video
         ref={videoRef}
-        src={import.meta.env.VITE_INTRO_VIDEO_URL}
+        src={videoSrc}
         playsInline
         onEnded={handleSkip}
         onError={handleVideoError}
