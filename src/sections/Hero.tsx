@@ -126,6 +126,19 @@ export default function Hero() {
             />
           </div>
 
+          {/* Outer Blue Counter-Rotating Ring */}
+          <div className="absolute inset-[-10%] flex items-center justify-center pointer-events-none z-0">
+            <motion.div
+              animate={{ rotate: -360 }}
+              transition={{
+                duration: 30,
+                repeat: Infinity,
+                ease: 'linear',
+              }}
+              className="w-full h-full rounded-full border-[4px] border-dashed border-neon-blue/70 shadow-[0_0_20px_rgba(59,130,246,0.5)]"
+            />
+          </div>
+
           {/* Solid Glowing Dual-Color Gradient Circle Boundary */}
           <motion.div
             animate={{

@@ -7,6 +7,7 @@ import GlowBackground from './components/GlowBackground'
 import CustomCursor from './components/CustomCursor'
 import Navbar from './components/Navbar'
 import IntroOverlay from './components/IntroOverlay'
+import Global3DBackground from './components/Global3DBackground'
 import Home from './pages/home'
 import About from './pages/about'
 import Skills from './pages/skills'
@@ -53,6 +54,9 @@ function App() {
 
       {/* 1. Dynamic Cyberpunk Glow & Particle Canvas */}
       <GlowBackground />
+      
+      {/* 1.5 Global 3D Particle Field */}
+      <Global3DBackground />
 
       {/* 2. Elevated Content Layer */}
       <div className="relative z-10 flex flex-col min-h-screen">

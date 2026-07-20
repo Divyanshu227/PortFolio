@@ -41,6 +41,50 @@ export default function Projects() {
   // Full projects dataset
   const projectsList: Project[] = [
     {
+      title: 'Noctis',
+      category: 'web-apps',
+      githubUrl: import.meta.env.VITE_GITHUB_URL_NOCTIS || '#',
+      description: 'A chilling, immersive horror story platform where users can read spine-tingling tales, listen to eerie narrations, and submit their own stories.',
+      tags: [
+        { name: 'React', color: 'border-rose-500/30 text-rose-500 bg-rose-500/5' },
+        { name: 'Tailwind CSS', color: 'border-stone-500/30 text-stone-400 bg-stone-500/5' },
+        { name: 'Audio API', color: 'border-purple-500/30 text-purple-400 bg-purple-500/5' }
+      ],
+      features: [
+        'Immersive UI with a dark, spooky aesthetic and haunting visuals.',
+        'Audio narration integration to listen to stories dynamically.',
+        'Community publishing platform for writers to submit their own tales.'
+      ],
+      specs: {
+        database: 'MongoDB',
+        host: 'Vercel',
+        security: 'Session Auth',
+        gateway: 'Next.js API'
+      },
+      mockup: (
+        <div className="relative w-full h-44 rounded-xl border border-rose-900/30 bg-[#050505] overflow-hidden flex flex-col p-3 shadow-[inset_0_0_20px_rgba(159,18,57,0.15)]">
+          <div className="flex items-center justify-between border-b border-rose-900/20 pb-2 mb-2 font-display text-[9px] uppercase tracking-wider text-rose-600 font-bold">
+            <span>NIGHT WHISPERS</span>
+            <span className="text-rose-500 animate-pulse text-[7px]">● LIVE</span>
+          </div>
+          <div className="flex-grow flex flex-col items-center justify-center p-2 rounded bg-black/40 border border-white/5 relative overflow-hidden">
+            {/* Fake Moon Graphic */}
+            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-stone-800/20 via-transparent to-transparent pointer-events-none"></div>
+            <div className="z-10 text-center">
+              <span className="text-white text-[11px] font-bold tracking-widest block mb-1 uppercase text-rose-50 drop-shadow-[0_0_5px_rgba(255,255,255,0.5)]">SOME STORIES</span>
+              <span className="text-rose-600 text-[14px] font-extrabold tracking-widest block uppercase drop-shadow-[0_0_8px_rgba(225,29,72,0.8)]">REFUSE TO DIE</span>
+            </div>
+            {/* Fake Stats */}
+            <div className="w-full flex justify-between px-2 mt-3 z-10 text-center font-mono text-[7px]">
+              <div><span className="text-rose-500 block font-bold text-[9px]">250+</span><span className="text-stone-400">STORIES</span></div>
+              <div><span className="text-rose-500 block font-bold text-[9px]">10K+</span><span className="text-stone-400">LISTENERS</span></div>
+              <div><span className="text-rose-500 block font-bold text-[9px]">500+</span><span className="text-stone-400">WRITERS</span></div>
+            </div>
+          </div>
+        </div>
+      )
+    },
+    {
       title: 'Strata',
       category: 'web-apps',
       githubUrl: import.meta.env.VITE_GITHUB_URL_STRATA,
