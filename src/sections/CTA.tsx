@@ -1,24 +1,8 @@
-import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { Send, Sparkles, Terminal } from 'lucide-react'
+import { Link } from 'react-router-dom'
 
 export default function CTA() {
-  const [email, setEmail] = useState('')
-  const [message, setMessage] = useState('')
-  const [submitted, setSubmitted] = useState(false)
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    if (email && message) {
-      setSubmitted(true)
-      setTimeout(() => {
-        setSubmitted(false)
-        setEmail('')
-        setMessage('')
-      }, 3000)
-    }
-  }
-
   return (
     <section id="contact" className="max-w-7xl mx-auto px-4 md:px-8 py-16 select-none">
       <motion.div
@@ -62,72 +46,37 @@ export default function CTA() {
                 <span>transmission_terminal.sh</span>
               </div>
               <p className="text-[10px] text-slate-400">{"$ status: READY_FOR_SIGNAL"}</p>
-              <p className="text-[10px] text-neon-purple mt-0.5">{"$ location: NEW_DELHI_IN // 28.61° N, 77.20° E"}</p>
+              <p className="text-[10px] text-neon-purple mt-0.5">{"$ routing: SECURE_NODE"}</p>
             </div>
           </div>
 
-          {/* Right Column: Contact form */}
-          <div className="lg:col-span-6 w-full">
-            {submitted ? (
-              <motion.div
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                className="w-full py-16 rounded-2xl border border-neon-cyan/20 bg-neon-cyan/5 backdrop-blur-lg flex flex-col items-center justify-center gap-3 text-center"
-              >
-                <div className="w-12 h-12 rounded-full bg-neon-cyan/10 border border-neon-cyan/30 flex items-center justify-center mb-2">
-                  <Send className="w-5 h-5 text-neon-cyan" />
-                </div>
-                <h3 className="text-lg font-bold text-slate-100">Signal Transmitted Successfully</h3>
-                <p className="text-xs text-slate-400 max-w-xs">
-                  Your communication has been securely routed. I'll get back to you shortly.
-                </p>
-              </motion.div>
-            ) : (
-              <form onSubmit={handleSubmit} className="w-full flex flex-col gap-4 text-left">
-                {/* Email input */}
-                <div className="flex flex-col gap-1.5">
-                  <label htmlFor="email" className="text-[11px] font-bold text-slate-400 uppercase tracking-wider pl-1">
-                    Your Digital Address (Email)
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    required
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    placeholder="name@domain.com"
-                    className="w-full px-5 py-3.5 rounded-xl border border-white/10 bg-white/2 text-sm text-slate-100 placeholder-slate-500 focus:outline-none focus:border-neon-cyan focus:shadow-[0_0_15px_rgba(6,182,212,0.15)] transition-all duration-300"
-                  />
-                </div>
-
-                {/* Message input */}
-                <div className="flex flex-col gap-1.5">
-                  <label htmlFor="message" className="text-[11px] font-bold text-slate-400 uppercase tracking-wider pl-1">
-                    Your Transmission (Message)
-                  </label>
-                  <textarea
-                    id="message"
-                    required
-                    rows={4}
-                    value={message}
-                    onChange={(e) => setMessage(e.target.value)}
-                    placeholder="Enter details of your project, idea, or query..."
-                    className="w-full px-5 py-3.5 rounded-xl border border-white/10 bg-white/2 text-sm text-slate-100 placeholder-slate-500 focus:outline-none focus:border-neon-purple focus:shadow-[0_0_15px_rgba(168,85,247,0.15)] transition-all duration-300 resize-none"
-                  />
-                </div>
-
-                {/* Submit button */}
+          {/* Right Column: Redirect to Secure Node */}
+          <div className="lg:col-span-6 w-full flex flex-col items-center justify-center">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="w-full p-8 md:p-10 rounded-2xl border border-neon-cyan/20 bg-black/40 backdrop-blur-lg flex flex-col items-center justify-center gap-5 text-center shadow-[0_0_30px_rgba(6,182,212,0.1)]"
+            >
+              <div className="w-16 h-16 rounded-full bg-neon-cyan/10 border border-neon-cyan/30 flex items-center justify-center mb-2">
+                <Send className="w-7 h-7 text-neon-cyan" />
+              </div>
+              <h3 className="text-xl md:text-2xl font-bold text-slate-100 font-display">Establish Secure Connection</h3>
+              <p className="text-sm text-slate-400 max-w-sm mb-2">
+                Route your communication through the secure gateway portal to ensure end-to-end encryption.
+              </p>
+              
+              <Link to="/contact" className="w-full block">
                 <motion.button
-                  whileHover={{ scale: 1.01 }}
-                  whileTap={{ scale: 0.99 }}
-                  type="submit"
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
                   className="w-full flex items-center justify-center gap-2 py-4 rounded-xl font-bold text-sm bg-gradient-to-r from-neon-purple to-neon-cyan text-white shadow-[0_0_20px_rgba(168,85,247,0.25)] hover:shadow-[0_0_30px_rgba(6,182,212,0.35)] transition-all duration-300 cursor-pointer"
                 >
-                  <span>Transmit Signal</span>
+                  <span>Open Gateway Portal</span>
                   <Send className="w-4 h-4" />
                 </motion.button>
-              </form>
-            )}
+              </Link>
+            </motion.div>
           </div>
 
         </div>

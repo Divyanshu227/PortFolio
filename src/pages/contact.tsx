@@ -250,7 +250,7 @@ export default function Contact() {
               <Clock className="w-6 h-6 text-neon-cyan" />
               <div>
                 <span className="text-[13px] font-mono text-slate-400 tracking-wide block">Local Node Telemetry</span>
-                <span className="text-[16px] font-semibold text-slate-100 font-display">Time & Coordinates</span>
+                <span className="text-[16px] font-semibold text-slate-100 font-display">Local Time</span>
               </div>
             </div>
             
@@ -262,12 +262,6 @@ export default function Contact() {
               <div className="flex justify-between border-b border-white/10 pb-2">
                 <span className="text-slate-300">Current Time</span>
                 <span className="text-neon-cyan font-bold tabular-nums">{istTime || "Syncing..."}</span>
-              </div>
-              <div className="flex justify-between">
-                <span className="text-slate-300">Lat / Lon</span>
-                <span className="text-slate-100 flex items-center gap-1.5 font-medium">
-                  <MapPin className="w-4 h-4 text-neon-purple" /> 20.5937° N / 78.9629° E
-                </span>
               </div>
             </div>
           </motion.div>
