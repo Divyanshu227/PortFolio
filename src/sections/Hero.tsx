@@ -113,19 +113,18 @@ export default function Hero() {
         {/* Holographic Glowing Base Elements */}
         <div className="relative flex items-center justify-center w-[300px] h-[300px] sm:w-[400px] sm:h-[400px] lg:w-[450px] lg:h-[450px]">
           
-          {/* Pulsating Blue Glow Circle - Backing Halo */}
-          <motion.div
-            animate={{
-              scale: [1, 1.02, 1],
-              rotate: 360,
-            }}
-            transition={{
-              duration: 25,
-              repeat: Infinity,
-              ease: 'linear',
-            }}
-            className="absolute inset-0 rounded-full border-2 border-dashed border-neon-blue/30 scale-95"
-          />
+          {/* Perimeter Rotating Ring */}
+          <div className="absolute inset-[-4%] flex items-center justify-center pointer-events-none z-0">
+            <motion.div
+              animate={{ rotate: 360 }}
+              transition={{
+                duration: 25,
+                repeat: Infinity,
+                ease: 'linear',
+              }}
+              className="w-full h-full rounded-full border-[6px] border-dashed border-neon-purple/90 shadow-[0_0_30px_rgba(168,85,247,0.6)]"
+            />
+          </div>
 
           {/* Solid Glowing Dual-Color Gradient Circle Boundary */}
           <motion.div
