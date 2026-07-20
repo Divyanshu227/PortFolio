@@ -5,7 +5,6 @@ import {
   Send, 
   MessageSquare, 
   Clock, 
-  MapPin, 
   User, 
   Activity, 
   CheckCircle2, 
